@@ -10,9 +10,14 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
+config/name="Ho Ho Homocide"
+run/main_scene="uid://cqow47bch5ocs"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[gui]
+
+theme/custom_font="uid://bhimw1mdk1j47"
 
 [physics]
 
@@ -20,4 +25,5 @@ config/icon="res://icon.svg"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
