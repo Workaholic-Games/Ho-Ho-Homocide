@@ -45,7 +45,7 @@ offset_right = 427.0
 offset_bottom = 178.0
 
 [node name="Button3" type="Button" parent="Camera2D" unique_id=1971678280]
-offset_left = 216.0
+offset_left = 208.0
 offset_top = 200.0
-offset_right = 435.0
+offset_right = 427.0
 offset_bottom = 226.0
