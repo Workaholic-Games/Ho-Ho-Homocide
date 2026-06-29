@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://drm1604p7xpwt"]
+
+[ext_resource type="Script" uid="uid://vuryug88n8sj" path="res://computer.gd" id="1_gcbbq"]
+[ext_resource type="Texture2D" uid="uid://bw6eoin5f5fq3" path="res://computer.png" id="1_gxl5a"]
+[ext_resource type="PackedScene" uid="uid://c4aqnatflm4qf" path="res://interaction/interaction_area/interaction_area.tscn" id="3_gcbbq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3poc4"]
+radius = 60.0
+
+[node name="Node2D" type="Node2D" unique_id=972793786]
+script = ExtResource("1_gcbbq")
+
+[node name="Computer" type="Sprite2D" parent="." unique_id=2142772158]
+texture = ExtResource("1_gxl5a")
+
+[node name="InteractionArea" parent="." unique_id=1504337543 instance=ExtResource("3_gcbbq")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1125910233]
+shape = SubResource("CircleShape2D_3poc4")

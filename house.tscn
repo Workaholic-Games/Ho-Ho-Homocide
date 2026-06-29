@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://doqurppbwj0ao"]
+
+[node name="House" type="Node2D" unique_id=1509356961]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=629117839]
+anchor_mode = 0

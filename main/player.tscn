@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://7tbtc5qng4re"]
+
+[ext_resource type="Script" uid="uid://byehxsgtf2w5h" path="res://main/player.gd" id="1_ou4ca"]
+[ext_resource type="Texture2D" uid="uid://3fw4tkypw47p" path="res://player.png" id="2_ab3tm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3poc4"]
+size = Vector2(26, 15)
+
+[sub_resource type="Animation" id="Animation_ab3tm"]
+resource_name = "Idle"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 1.1333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -6), Vector2(0, 6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 1.1333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1), Vector2(0, 13)]
+}
+
+[sub_resource type="Animation" id="Animation_4v151"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 7)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lat6o"]
+_data = {
+&"Idle": SubResource("Animation_ab3tm"),
+&"RESET": SubResource("Animation_4v151")
+}
+
+[node name="Player" type="CharacterBody2D" unique_id=2081383243 groups=["player"]]
+collision_layer = 2
+script = ExtResource("1_ou4ca")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=23571003]
+texture = ExtResource("2_ab3tm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=628732611]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_3poc4")
+
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=547275370]
+libraries/ = SubResource("AnimationLibrary_lat6o")

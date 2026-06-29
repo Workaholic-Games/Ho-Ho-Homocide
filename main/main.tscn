@@ -1,16 +1,19 @@
 [gd_scene format=3 uid="uid://cqow47bch5ocs"]
 
 [ext_resource type="Texture2D" uid="uid://dadn3yoahyt77" path="res://background.png" id="1_53q0u"]
+[ext_resource type="Script" uid="uid://80smbrgl15kt" path="res://main/main.gd" id="1_c651c"]
 [ext_resource type="Texture2D" uid="uid://d0rflmsgl38o4" path="res://foreground.png" id="2_pjrb6"]
+[ext_resource type="PackedScene" uid="uid://7tbtc5qng4re" path="res://main/player.tscn" id="3_xwkvk"]
 
 [node name="main" type="Node2D" unique_id=1544259826]
+script = ExtResource("1_c651c")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=904759993]
 anchor_mode = 0
 
 [node name="Parallax2D" type="Parallax2D" parent="Camera2D" unique_id=1999723552]
 repeat_size = Vector2(640, 0)
-autoscroll = Vector2(10, 0)
+autoscroll = Vector2(-10, 0)
 
 [node name="Background" type="Sprite2D" parent="Camera2D/Parallax2D" unique_id=600250531]
 position = Vector2(320, 180)
@@ -18,7 +21,7 @@ texture = ExtResource("1_53q0u")
 
 [node name="Parallax2D2" type="Parallax2D" parent="Camera2D" unique_id=2133704747]
 repeat_size = Vector2(640, 0)
-autoscroll = Vector2(23.935, 0)
+autoscroll = Vector2(-23.935, 0)
 
 [node name="Foreground" type="Sprite2D" parent="Camera2D/Parallax2D2" unique_id=115981556]
 position = Vector2(320, 180)
@@ -32,20 +35,28 @@ offset_bottom = 45.0
 text = "Ho Ho Homocide"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="Camera2D" unique_id=1762176539]
+[node name="Singleplayer" type="Button" parent="Camera2D" unique_id=1762176539]
 offset_left = 208.0
 offset_top = 112.0
 offset_right = 427.0
 offset_bottom = 138.0
+text = "Singleplayer"
 
 [node name="Button2" type="Button" parent="Camera2D" unique_id=1503208763]
 offset_left = 208.0
 offset_top = 152.0
 offset_right = 427.0
 offset_bottom = 178.0
+text = "Multiplayer"
 
 [node name="Button3" type="Button" parent="Camera2D" unique_id=1971678280]
 offset_left = 208.0
 offset_top = 200.0
 offset_right = 427.0
 offset_bottom = 226.0
+text = "Quit"
+
+[node name="Player" parent="." unique_id=2081383243 instance=ExtResource("3_xwkvk")]
+position = Vector2(309, 77)
+
+[connection signal="pressed" from="Camera2D/Singleplayer" to="." method="_on_singleplayer_pressed"]
