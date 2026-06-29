@@ -11,8 +11,7 @@ var can_interact : bool = true
 
 func register_area(area : InteractionArea):
 	active_areas.push_back(area)
-	print("reg")
-	
+
 func unregister_area(area : InteractionArea):
 	var index = active_areas.find(area)
 	if index != -1:

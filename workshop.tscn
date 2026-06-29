@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://7tbtc5qng4re" path="res://main/player.tscn" id="1_4mwdg"]
 [ext_resource type="Texture2D" uid="uid://bchy47fkrkha6" path="res://tilemap_atlas.png" id="1_qrwm2"]
 [ext_resource type="Script" uid="uid://dcjcp0rsxxx8j" path="res://follow_cam.gd" id="3_auti2"]
+[ext_resource type="Texture2D" uid="uid://dadn3yoahyt77" path="res://background.png" id="5_as4r2"]
+[ext_resource type="Texture2D" uid="uid://bwd4i4cno0kl1" path="res://close_button.png" id="6_6y7g7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mwdg"]
 texture = ExtResource("1_qrwm2")
@@ -37,9 +39,6 @@ tile_set = SubResource("TileSet_3poc4")
 tile_map_data = PackedByteArray("AAAAAAsAAAABAAAAAAAAAAoAAAABAAAAAAAAAAkAAAABAAAAAAAAAAgAAAABAAAAAAAAAAcAAAABAAAAAAAAAAYAAAABAAAAAAAAAAUAAAABAAAAAAAAAAQAAAABAAAAAAAAAAMAAAABAAAAAAAAAAIAAAABAAAAAAAAAAEAAAABAAAAAAAAAAAAAAACAAAAAAAuAAAAAAACAAAAAFAtAAAAAAABAAAAAFAsAAAAAAABAAAAAFArAAAAAAABAAAAAFAqAAAAAAABAAAAAFApAAAAAAABAAAAAFAoAAAAAAABAAAAAFAnAAAAAAABAAAAAFAmAAAAAAABAAAAAFAlAAAAAAABAAAAAFAkAAAAAAABAAAAAFAjAAAAAAABAAAAAFAiAAAAAAABAAAAAFAhAAAAAAABAAAAAFAgAAAAAAABAAAAAFAfAAAAAAABAAAAAFABAAAAAAABAAAAAFACAAAAAAABAAAAAFADAAAAAAABAAAAAFAEAAAAAAABAAAAAFAFAAAAAAABAAAAAFAGAAAAAAABAAAAAFAHAAAAAAABAAAAAFAIAAAAAAABAAAAAFAJAAAAAAABAAAAAFAKAAAAAAABAAAAAFALAAAAAAABAAAAAFAMAAAAAAABAAAAAFANAAAAAAABAAAAAFAOAAAAAAABAAAAAFAPAAAAAAABAAAAAFAQAAAAAAABAAAAAFARAAAAAAABAAAAAFASAAAAAAABAAAAAFATAAAAAAABAAAAAFATAAEAAAABAAAAAFAUAAEAAAABAAAAAFAVAAEAAAABAAAAAFAUAAAAAAABAAAAAFAVAAAAAAABAAAAAFAWAAAAAAABAAAAAFAXAAAAAAABAAAAAFAYAAAAAAABAAAAAFAZAAAAAAABAAAAAFAaAAAAAAABAAAAAFAbAAAAAAABAAAAAFAcAAAAAAABAAAAAFAdAAAAAAABAAAAAFAeAAAAAAABAAAAAFA1AAIAAAABAAAAADAAAAwAAAABAAAAAAAAAA0AAAABAAAAAAAAAA4AAAABAAAAAAAAAA8AAAABAAAAAAAAABAAAAABAAAAAAAAABEAAAABAAAAAAAAABIAAAABAAAAAAAAABMAAAABAAAAAAAAABQAAAABAAAAAAAAABUAAAABAAAAAAAAABYAAAABAAAAAAAAABcAAAABAAAAAAAAABgAAAABAAAAAAAAABkAAAABAAAAAAAAABoAAAABAAAAAAAAABsAAAABAAAAAAAAABwAAAABAAAAAAAAAB0AAAABAAAAAAAuAAEAAAABAAAAADAuAAIAAAABAAAAADAuAAMAAAABAAAAADAuAAQAAAABAAAAADAuAAUAAAABAAAAADAuAAYAAAABAAAAADAuAAcAAAABAAAAADAuAAgAAAABAAAAADAuAAkAAAABAAAAADAuAAoAAAABAAAAADAuAAsAAAABAAAAADAuAAwAAAABAAAAADAuAA0AAAABAAAAADAuAA4AAAABAAAAADAuAA8AAAABAAAAADAuABAAAAABAAAAADAuABEAAAABAAAAADAuABIAAAABAAAAADAuABMAAAABAAAAADAuABQAAAABAAAAADAuABUAAAABAAAAADAuABYAAAABAAAAADAuABcAAAABAAAAADAuABgAAAABAAAAADAuABkAAAABAAAAADAuABoAAAABAAAAADAuABsAAAABAAAAADAuABwAAAABAAAAADAuAB0AAAABAAAAADAuAB4AAAABAAAAADAuAB8AAAABAAAAADA=")
 tile_set = SubResource("TileSet_q0lp6")
 
-[node name="Node2D" parent="." unique_id=972793786 instance=ExtResource("1_3ip43")]
-position = Vector2(96, 134)
-
 [node name="Player" parent="." unique_id=2081383243 instance=ExtResource("1_4mwdg")]
 position = Vector2(249, 190)
 
@@ -51,3 +50,45 @@ limit_right = 0
 limit_bottom = 0
 script = ExtResource("3_auti2")
 tilemap = NodePath("../../Ground/Walls")
+
+[node name="Computer" parent="." unique_id=972793786 node_paths=PackedStringArray("ui") instance=ExtResource("1_3ip43")]
+position = Vector2(102, 115)
+ui = NodePath("../CanvasLayer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1902215423]
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer" unique_id=2075571092]
+position = Vector2(324, 180)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("5_as4r2")
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer" unique_id=166599469]
+offset_left = 128.0
+offset_top = 56.0
+offset_right = 144.0
+offset_bottom = 72.0
+texture_normal = ExtResource("6_6y7g7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CanvasLayer/TextureButton" unique_id=1452020286]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 16.0
+offset_right = 42.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 8
+text = "Naughty or Nice DB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close Button" type="TextureButton" parent="CanvasLayer" unique_id=538913003]
+offset_left = 584.0
+offset_top = 32.0
+offset_right = 600.0
+offset_bottom = 48.0
+texture_normal = ExtResource("6_6y7g7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="CanvasLayer/Close Button" to="Computer" method="_on_close_button_pressed"]
