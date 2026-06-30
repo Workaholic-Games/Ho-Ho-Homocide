@@ -1,14 +1,15 @@
 [gd_scene format=4 uid="uid://chon40hguej4m"]
 
-[ext_resource type="PackedScene" uid="uid://drm1604p7xpwt" path="res://computer.tscn" id="1_3ip43"]
-[ext_resource type="PackedScene" uid="uid://7tbtc5qng4re" path="res://main/player.tscn" id="1_4mwdg"]
-[ext_resource type="Texture2D" uid="uid://bchy47fkrkha6" path="res://tilemap_atlas.png" id="1_qrwm2"]
-[ext_resource type="Script" uid="uid://dcjcp0rsxxx8j" path="res://follow_cam.gd" id="3_auti2"]
-[ext_resource type="Texture2D" uid="uid://dadn3yoahyt77" path="res://background.png" id="5_as4r2"]
-[ext_resource type="Texture2D" uid="uid://bwd4i4cno0kl1" path="res://close_button.png" id="6_6y7g7"]
+[ext_resource type="Texture2D" uid="uid://bchy47fkrkha6" path="res://tilemap_atlas.png" id="1_iqvtc"]
+[ext_resource type="PackedScene" uid="uid://7tbtc5qng4re" path="res://main/player.tscn" id="2_ygum1"]
+[ext_resource type="Script" uid="uid://dcjcp0rsxxx8j" path="res://follow_cam.gd" id="3_ygsbs"]
+[ext_resource type="PackedScene" uid="uid://drm1604p7xpwt" path="res://computer/computer.tscn" id="4_4261n"]
+[ext_resource type="Texture2D" uid="uid://dadn3yoahyt77" path="res://background.png" id="5_4ou1u"]
+[ext_resource type="Texture2D" uid="uid://bwd4i4cno0kl1" path="res://computer/close_button.png" id="6_vyl78"]
+[ext_resource type="Texture2D" uid="uid://dl5lqoctoxe23" path="res://map.png" id="7_ygum1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mwdg"]
-texture = ExtResource("1_qrwm2")
+texture = ExtResource("1_iqvtc")
 0:0/0 = 0
 1:0/0 = 0
 
@@ -16,7 +17,7 @@ texture = ExtResource("1_qrwm2")
 sources/0 = SubResource("TileSetAtlasSource_4mwdg")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_auti2"]
-texture = ExtResource("1_qrwm2")
+texture = ExtResource("1_iqvtc")
 0:0/0 = 0
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(5, 0)
@@ -39,7 +40,7 @@ tile_set = SubResource("TileSet_3poc4")
 tile_map_data = PackedByteArray("AAAAAAsAAAABAAAAAAAAAAoAAAABAAAAAAAAAAkAAAABAAAAAAAAAAgAAAABAAAAAAAAAAcAAAABAAAAAAAAAAYAAAABAAAAAAAAAAUAAAABAAAAAAAAAAQAAAABAAAAAAAAAAMAAAABAAAAAAAAAAIAAAABAAAAAAAAAAEAAAABAAAAAAAAAAAAAAACAAAAAAAuAAAAAAACAAAAAFAtAAAAAAABAAAAAFAsAAAAAAABAAAAAFArAAAAAAABAAAAAFAqAAAAAAABAAAAAFApAAAAAAABAAAAAFAoAAAAAAABAAAAAFAnAAAAAAABAAAAAFAmAAAAAAABAAAAAFAlAAAAAAABAAAAAFAkAAAAAAABAAAAAFAjAAAAAAABAAAAAFAiAAAAAAABAAAAAFAhAAAAAAABAAAAAFAgAAAAAAABAAAAAFAfAAAAAAABAAAAAFABAAAAAAABAAAAAFACAAAAAAABAAAAAFADAAAAAAABAAAAAFAEAAAAAAABAAAAAFAFAAAAAAABAAAAAFAGAAAAAAABAAAAAFAHAAAAAAABAAAAAFAIAAAAAAABAAAAAFAJAAAAAAABAAAAAFAKAAAAAAABAAAAAFALAAAAAAABAAAAAFAMAAAAAAABAAAAAFANAAAAAAABAAAAAFAOAAAAAAABAAAAAFAPAAAAAAABAAAAAFAQAAAAAAABAAAAAFARAAAAAAABAAAAAFASAAAAAAABAAAAAFATAAAAAAABAAAAAFATAAEAAAABAAAAAFAUAAEAAAABAAAAAFAVAAEAAAABAAAAAFAUAAAAAAABAAAAAFAVAAAAAAABAAAAAFAWAAAAAAABAAAAAFAXAAAAAAABAAAAAFAYAAAAAAABAAAAAFAZAAAAAAABAAAAAFAaAAAAAAABAAAAAFAbAAAAAAABAAAAAFAcAAAAAAABAAAAAFAdAAAAAAABAAAAAFAeAAAAAAABAAAAAFA1AAIAAAABAAAAADAAAAwAAAABAAAAAAAAAA0AAAABAAAAAAAAAA4AAAABAAAAAAAAAA8AAAABAAAAAAAAABAAAAABAAAAAAAAABEAAAABAAAAAAAAABIAAAABAAAAAAAAABMAAAABAAAAAAAAABQAAAABAAAAAAAAABUAAAABAAAAAAAAABYAAAABAAAAAAAAABcAAAABAAAAAAAAABgAAAABAAAAAAAAABkAAAABAAAAAAAAABoAAAABAAAAAAAAABsAAAABAAAAAAAAABwAAAABAAAAAAAAAB0AAAABAAAAAAAuAAEAAAABAAAAADAuAAIAAAABAAAAADAuAAMAAAABAAAAADAuAAQAAAABAAAAADAuAAUAAAABAAAAADAuAAYAAAABAAAAADAuAAcAAAABAAAAADAuAAgAAAABAAAAADAuAAkAAAABAAAAADAuAAoAAAABAAAAADAuAAsAAAABAAAAADAuAAwAAAABAAAAADAuAA0AAAABAAAAADAuAA4AAAABAAAAADAuAA8AAAABAAAAADAuABAAAAABAAAAADAuABEAAAABAAAAADAuABIAAAABAAAAADAuABMAAAABAAAAADAuABQAAAABAAAAADAuABUAAAABAAAAADAuABYAAAABAAAAADAuABcAAAABAAAAADAuABgAAAABAAAAADAuABkAAAABAAAAADAuABoAAAABAAAAADAuABsAAAABAAAAADAuABwAAAABAAAAADAuAB0AAAABAAAAADAuAB4AAAABAAAAADAuAB8AAAABAAAAADA=")
 tile_set = SubResource("TileSet_q0lp6")
 
-[node name="Player" parent="." unique_id=2081383243 instance=ExtResource("1_4mwdg")]
+[node name="Player" parent="." unique_id=2081383243 instance=ExtResource("2_ygum1")]
 position = Vector2(249, 190)
 
 [node name="Follow Cam" type="Camera2D" parent="Player" unique_id=1193682633 node_paths=PackedStringArray("tilemap")]
@@ -48,30 +49,31 @@ limit_left = 0
 limit_top = 0
 limit_right = 0
 limit_bottom = 0
-script = ExtResource("3_auti2")
+script = ExtResource("3_ygsbs")
 tilemap = NodePath("../../Ground/Walls")
 
-[node name="Computer" parent="." unique_id=972793786 node_paths=PackedStringArray("ui") instance=ExtResource("1_3ip43")]
+[node name="Computer" parent="." unique_id=972793786 node_paths=PackedStringArray("ui") instance=ExtResource("4_4261n")]
 position = Vector2(102, 115)
-ui = NodePath("../CanvasLayer")
+ui = NodePath("../ComputerUI")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1902215423]
+[node name="ComputerUI" type="CanvasLayer" parent="." unique_id=1902215423]
+visible = false
 
-[node name="Background" type="Sprite2D" parent="CanvasLayer" unique_id=2075571092]
+[node name="Background" type="Sprite2D" parent="ComputerUI" unique_id=2075571092]
 position = Vector2(324, 180)
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("5_as4r2")
+texture = ExtResource("5_4ou1u")
 
-[node name="TextureButton" type="TextureButton" parent="CanvasLayer" unique_id=166599469]
+[node name="TextureButton" type="TextureButton" parent="ComputerUI" unique_id=166599469]
 offset_left = 128.0
 offset_top = 56.0
 offset_right = 144.0
 offset_bottom = 72.0
-texture_normal = ExtResource("6_6y7g7")
+texture_normal = ExtResource("6_vyl78")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="CanvasLayer/TextureButton" unique_id=1452020286]
+[node name="Label" type="Label" parent="ComputerUI/TextureButton" unique_id=1452020286]
 layout_mode = 0
 offset_left = -24.0
 offset_top = 16.0
@@ -82,13 +84,50 @@ text = "Naughty or Nice DB"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Close Button" type="TextureButton" parent="CanvasLayer" unique_id=538913003]
+[node name="Close Button" type="TextureButton" parent="ComputerUI" unique_id=538913003]
 offset_left = 584.0
 offset_top = 32.0
 offset_right = 600.0
 offset_bottom = 48.0
-texture_normal = ExtResource("6_6y7g7")
+texture_normal = ExtResource("6_vyl78")
 ignore_texture_size = true
 stretch_mode = 0
 
-[connection signal="pressed" from="CanvasLayer/Close Button" to="Computer" method="_on_close_button_pressed"]
+[node name="Map" type="CanvasLayer" parent="." unique_id=489627316]
+
+[node name="Background" type="Sprite2D" parent="Map" unique_id=1565623658]
+position = Vector2(324, 180)
+scale = Vector2(9, 11.250001)
+texture = ExtResource("7_ygum1")
+
+[node name="House" type="TextureButton" parent="Map" unique_id=935659619]
+offset_left = 128.0
+offset_top = 56.0
+offset_right = 144.0
+offset_bottom = 72.0
+texture_normal = ExtResource("6_vyl78")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Difficulty" type="Label" parent="Map/House" unique_id=139617119]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 16.0
+offset_right = 42.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 8
+text = "Difficulty"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close Button" type="TextureButton" parent="Map" unique_id=2125739802]
+offset_left = 584.0
+offset_top = 32.0
+offset_right = 600.0
+offset_bottom = 48.0
+texture_normal = ExtResource("6_vyl78")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="ComputerUI/Close Button" to="Computer" method="_on_close_button_pressed"]
+[connection signal="pressed" from="Map/Close Button" to="Computer" method="_on_close_button_pressed"]

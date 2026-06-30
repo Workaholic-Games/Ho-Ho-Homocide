@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Stats="*uid://b5vtbvw4lf47n"
 InteractionManager="*uid://cloet53wlcy72"
 
 [display]

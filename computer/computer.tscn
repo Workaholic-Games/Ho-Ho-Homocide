@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://drm1604p7xpwt"]
 
-[ext_resource type="Script" uid="uid://vuryug88n8sj" path="res://computer.gd" id="1_gcbbq"]
-[ext_resource type="Texture2D" uid="uid://bw6eoin5f5fq3" path="res://computer.png" id="1_gxl5a"]
+[ext_resource type="Script" uid="uid://vuryug88n8sj" path="res://computer/computer.gd" id="1_gcbbq"]
+[ext_resource type="Texture2D" uid="uid://bw6eoin5f5fq3" path="res://computer/computer.png" id="1_gxl5a"]
 [ext_resource type="PackedScene" uid="uid://c4aqnatflm4qf" path="res://interaction/interaction_area/interaction_area.tscn" id="3_gcbbq"]
 [ext_resource type="AudioStream" uid="uid://1x1gvbjj0avr" path="res://Mouse Click Sound Effect.mp3" id="4_jr5mb"]
 

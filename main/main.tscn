@@ -59,4 +59,12 @@ text = "Quit"
 [node name="Player" parent="." unique_id=2081383243 instance=ExtResource("3_xwkvk")]
 position = Vector2(309, 77)
 
+[node name="Label" type="Label" parent="." unique_id=246557514]
+offset_left = 54.0
+offset_top = 36.0
+offset_right = 94.0
+offset_bottom = 54.0
+text = "Holiday Cheer: "
+
 [connection signal="pressed" from="Camera2D/Singleplayer" to="." method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="Camera2D/Button3" to="." method="_on_button_3_pressed"]
