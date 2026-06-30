@@ -5,8 +5,10 @@
 [ext_resource type="Script" uid="uid://dcjcp0rsxxx8j" path="res://follow_cam.gd" id="3_ygsbs"]
 [ext_resource type="PackedScene" uid="uid://drm1604p7xpwt" path="res://computer/computer.tscn" id="4_4261n"]
 [ext_resource type="Texture2D" uid="uid://dadn3yoahyt77" path="res://background.png" id="5_4ou1u"]
+[ext_resource type="PackedScene" uid="uid://bc6a0ebk45cpa" path="res://map.tscn" id="5_4261n"]
 [ext_resource type="Texture2D" uid="uid://bwd4i4cno0kl1" path="res://computer/close_button.png" id="6_vyl78"]
 [ext_resource type="Texture2D" uid="uid://dl5lqoctoxe23" path="res://map.png" id="7_ygum1"]
+[ext_resource type="Texture2D" uid="uid://cda6evfy27me5" path="res://house.png" id="8_ygsbs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mwdg"]
 texture = ExtResource("1_iqvtc")
@@ -29,6 +31,10 @@ texture = ExtResource("1_iqvtc")
 [sub_resource type="TileSet" id="TileSet_q0lp6"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_auti2")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4261n"]
+atlas = ExtResource("8_ygsbs")
+region = Rect2(0, 0, 64, 53)
 
 [node name="Node2D" type="Node2D" unique_id=1965549971]
 
@@ -55,6 +61,10 @@ tilemap = NodePath("../../Ground/Walls")
 [node name="Computer" parent="." unique_id=972793786 node_paths=PackedStringArray("ui") instance=ExtResource("4_4261n")]
 position = Vector2(102, 115)
 ui = NodePath("../ComputerUI")
+
+[node name="Map" parent="." unique_id=1146054403 node_paths=PackedStringArray("ui") instance=ExtResource("5_4261n")]
+position = Vector2(584, 32)
+ui = NodePath("../MapUI")
 
 [node name="ComputerUI" type="CanvasLayer" parent="." unique_id=1902215423]
 visible = false
@@ -93,34 +103,137 @@ texture_normal = ExtResource("6_vyl78")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Map" type="CanvasLayer" parent="." unique_id=489627316]
+[node name="MapUI" type="CanvasLayer" parent="." unique_id=489627316]
+visible = false
 
-[node name="Background" type="Sprite2D" parent="Map" unique_id=1565623658]
+[node name="Background" type="Sprite2D" parent="MapUI" unique_id=1565623658]
 position = Vector2(324, 180)
 scale = Vector2(9, 11.250001)
 texture = ExtResource("7_ygum1")
 
-[node name="House" type="TextureButton" parent="Map" unique_id=935659619]
-offset_left = 128.0
-offset_top = 56.0
-offset_right = 144.0
-offset_bottom = 72.0
-texture_normal = ExtResource("6_vyl78")
+[node name="House" type="TextureButton" parent="MapUI" unique_id=935659619]
+offset_left = 112.0
+offset_top = 184.0
+offset_right = 192.0
+offset_bottom = 248.0
+texture_normal = SubResource("AtlasTexture_4261n")
 ignore_texture_size = true
-stretch_mode = 0
+stretch_mode = 4
 
-[node name="Difficulty" type="Label" parent="Map/House" unique_id=139617119]
+[node name="Difficulty" type="Label" parent="MapUI/House" unique_id=139617119]
 layout_mode = 0
-offset_left = -24.0
-offset_top = 16.0
-offset_right = 42.0
-offset_bottom = 25.0
+offset_left = -16.0
+offset_top = 64.0
+offset_right = 50.0
+offset_bottom = 73.0
 theme_override_font_sizes/font_size = 8
 text = "Difficulty"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Close Button" type="TextureButton" parent="Map" unique_id=2125739802]
+[node name="House4" type="TextureButton" parent="MapUI" unique_id=500625940]
+offset_left = 272.0
+offset_top = 208.0
+offset_right = 352.0
+offset_bottom = 272.0
+texture_normal = SubResource("AtlasTexture_4261n")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Difficulty" type="Label" parent="MapUI/House4" unique_id=1140866220]
+layout_mode = 0
+offset_left = -16.0
+offset_top = 64.0
+offset_right = 50.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 8
+text = "Difficulty"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="House6" type="TextureButton" parent="MapUI" unique_id=1040439563]
+offset_left = 280.0
+offset_top = 56.0
+offset_right = 360.0
+offset_bottom = 120.0
+texture_normal = SubResource("AtlasTexture_4261n")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Difficulty" type="Label" parent="MapUI/House6" unique_id=969975882]
+layout_mode = 0
+offset_left = -16.0
+offset_top = 64.0
+offset_right = 50.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 8
+text = "Difficulty"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="House7" type="TextureButton" parent="MapUI" unique_id=1822698929]
+offset_left = 432.0
+offset_top = 192.0
+offset_right = 512.0
+offset_bottom = 256.0
+texture_normal = SubResource("AtlasTexture_4261n")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Difficulty" type="Label" parent="MapUI/House7" unique_id=907808778]
+layout_mode = 0
+offset_left = -16.0
+offset_top = 64.0
+offset_right = 50.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 8
+text = "Difficulty"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="House2" type="TextureButton" parent="MapUI" unique_id=593778891]
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 208.0
+offset_bottom = 128.0
+texture_normal = SubResource("AtlasTexture_4261n")
+ignore_texture_size = true
+stretch_mode = 4
+flip_h = true
+
+[node name="Difficulty" type="Label" parent="MapUI/House2" unique_id=1804277905]
+layout_mode = 0
+offset_left = -16.0
+offset_top = 64.0
+offset_right = 50.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 8
+text = "Difficulty"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="House3" type="TextureButton" parent="MapUI" unique_id=1344354439]
+offset_left = 400.0
+offset_top = 88.0
+offset_right = 480.0
+offset_bottom = 152.0
+texture_normal = SubResource("AtlasTexture_4261n")
+ignore_texture_size = true
+stretch_mode = 4
+flip_h = true
+
+[node name="Difficulty" type="Label" parent="MapUI/House3" unique_id=1173876722]
+layout_mode = 0
+offset_left = -16.0
+offset_top = 64.0
+offset_right = 50.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 8
+text = "Difficulty"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close Button" type="TextureButton" parent="MapUI" unique_id=2125739802]
 offset_left = 584.0
 offset_top = 32.0
 offset_right = 600.0
@@ -130,4 +243,4 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [connection signal="pressed" from="ComputerUI/Close Button" to="Computer" method="_on_close_button_pressed"]
-[connection signal="pressed" from="Map/Close Button" to="Computer" method="_on_close_button_pressed"]
+[connection signal="pressed" from="MapUI/Close Button" to="Map" method="_on_close_button_pressed"]

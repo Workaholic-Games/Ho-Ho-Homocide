@@ -8,3 +8,4 @@ func _ready() -> void:
 	var worldsizepixels = mapsize.size * tilesize
 	limit_right = worldsizepixels.x
 	limit_bottom = worldsizepixels.y
+	print(limit_bottom)
