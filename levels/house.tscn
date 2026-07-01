@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://7tbtc5qng4re" path="res://main/player.tscn" id="1_lbews"]
 [ext_resource type="Script" uid="uid://dcjcp0rsxxx8j" path="res://follow_cam.gd" id="2_4khaa"]
 [ext_resource type="Texture2D" uid="uid://bm22jkk57rbgk" path="res://floor.png" id="4_0bg5l"]
-[ext_resource type="PackedScene" uid="uid://dkyj80wxi7q0n" path="res://hazzard.tscn" id="5_olatg"]
+[ext_resource type="PackedScene" uid="uid://dkyj80wxi7q0n" path="res://hazard.tscn" id="5_olatg"]
 [ext_resource type="Shader" uid="uid://4xo1alu3544a" path="res://levels/timer.gdshader" id="5_srnql"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_srnql"]
@@ -19,7 +19,7 @@ sources/0 = SubResource("TileSetAtlasSource_srnql")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3poc4"]
 shader = ExtResource("5_srnql")
 shader_parameter/progress = 0.0
-shader_parameter/bar_color = Color(0.2, 0.7, 0.3, 1)
+shader_parameter/bar_color = Color(0.9137255, 0, 0, 1)
 shader_parameter/bg_color = Color(0.1, 0.1, 0.1, 0.5)
 
 [node name="House" type="Node2D" unique_id=1509356961]
