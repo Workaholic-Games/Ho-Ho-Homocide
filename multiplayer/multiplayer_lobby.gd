@@ -3,6 +3,7 @@ const player_scene = preload("res://main/player.tscn")
 const port = 9998
 var enet_peer = ENetMultiplayerPeer.new()
 var my_player : player
+var public_ip : String = ""
 @export var players : Dictionary = {}
 
 
@@ -72,6 +73,9 @@ func upnp_setup():
 		"UPNP Port Mapping Failed! Error %s" % map_result)
 	
 	print("Success!")
+	
+	public_ip = upnp.query_external_address()
+	print("IP is: " + str(public_ip))
 
 func on_connected_fail():
 	get_tree().change_scene_to_file("res://main/title.tscn")
