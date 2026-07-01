@@ -11,7 +11,7 @@ func _ready() -> void:
 	multiplayer.connection_failed.connect(on_connected_fail)
 	multiplayer.server_disconnected.connect(on_server_disconnected)
 	multiplayer.peer_disconnected.connect(on_player_disconnected)
-	
+	MultiplayerManagement.decode()
 	if MultiplayerManagement.playing_multiplayer == true:
 		if MultiplayerManagement.multiplayer_stats["ip"] == "host":
 			host()
@@ -34,6 +34,7 @@ func host() -> void:
 
 
 func join(ip) -> void:
+	MultiplayerManagement.decode()
 	if ip == "bulba.net": enet_peer.create_client("67.160.110.100", port)
 	elif ip == "sawyer.net": 
 		enet_peer.create_client("184.182.0.132", port)
@@ -105,3 +106,6 @@ func _exit_tree() -> void:
 		if multiplayer.is_server():
 			pass
 			# this is here for any save data nessesary
+			
+
+	
