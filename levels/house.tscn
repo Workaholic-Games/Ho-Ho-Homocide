@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://7tbtc5qng4re" path="res://main/player.tscn" id="1_lbews"]
 [ext_resource type="Script" uid="uid://dcjcp0rsxxx8j" path="res://follow_cam.gd" id="2_4khaa"]
 [ext_resource type="Texture2D" uid="uid://bm22jkk57rbgk" path="res://floor.png" id="4_0bg5l"]
+[ext_resource type="PackedScene" uid="uid://dkyj80wxi7q0n" path="res://hazzard.tscn" id="5_olatg"]
+[ext_resource type="Shader" uid="uid://4xo1alu3544a" path="res://levels/timer.gdshader" id="5_srnql"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_srnql"]
 texture = ExtResource("4_0bg5l")
@@ -13,6 +15,12 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_3poc4"]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_srnql")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3poc4"]
+shader = ExtResource("5_srnql")
+shader_parameter/progress = 0.0
+shader_parameter/bar_color = Color(0.2, 0.7, 0.3, 1)
+shader_parameter/bg_color = Color(0.1, 0.1, 0.1, 0.5)
 
 [node name="House" type="Node2D" unique_id=1509356961]
 script = ExtResource("1_0bg5l")
@@ -31,14 +39,18 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAA
 tile_set = SubResource("TileSet_3poc4")
 rendering_quadrant_size = 32
 
+[node name="Hazzard" parent="." unique_id=20425344 instance=ExtResource("5_olatg")]
+position = Vector2(88, 100)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=572901288]
 
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1678416774]
-offset_right = 251.0
+offset_right = 136.0
 offset_bottom = 22.0
+step = 0.0
 show_percentage = false
 
-[node name="Awake Timer" type="Timer" parent="." unique_id=1616364123]
-wait_time = 100.0
-one_shot = true
-autostart = true
+[node name="AwakeTime" type="ColorRect" parent="CanvasLayer" unique_id=166803534]
+material = SubResource("ShaderMaterial_3poc4")
+offset_right = 136.0
+offset_bottom = 22.0

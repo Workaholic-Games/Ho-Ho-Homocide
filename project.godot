@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 InteractionManager="*uid://cloet53wlcy72"
 SaveManager="*uid://e8kqvqmtah6x"
+CurrentLevelData="*uid://byacelrnpwk0e"
 
 [display]
 
