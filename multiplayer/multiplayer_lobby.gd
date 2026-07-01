@@ -11,6 +11,7 @@ func _ready() -> void:
 	multiplayer.connection_failed.connect(on_connected_fail)
 	multiplayer.server_disconnected.connect(on_server_disconnected)
 	multiplayer.peer_disconnected.connect(on_player_disconnected)
+	
 	if MultiplayerManagement.playing_multiplayer == true:
 		if MultiplayerManagement.multiplayer_stats["ip"] == "host":
 			host()
@@ -84,12 +85,13 @@ func upnp_setup():
 	var encoded_session_key: String = Marshalls.raw_to_base64(raw_bytes)
 	encoded_session_key = encoded_session_key.replace("=", "")
 	print("Encoded: " + encoded_session_key)
-	
 
 func on_connected_fail():
+	MultiplayerManagement.playing_multiplayer = false
 	get_tree().change_scene_to_file("res://main/title.tscn")
 
 func on_server_disconnected():
+	MultiplayerManagement.playing_multiplayer = false
 	get_tree().change_scene_to_file("res://main/title.tscn")
 
 func on_player_disconnected(id):

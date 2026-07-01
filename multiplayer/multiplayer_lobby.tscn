@@ -12,7 +12,7 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_adslu")
 
-[node name="Lobby" type="Node2D" unique_id=1749281486]
+[node name="Lobby" type="Node2D" unique_id=1147753822]
 script = ExtResource("1_adslu")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=732957343]

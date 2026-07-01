@@ -2,10 +2,15 @@ extends CharacterBody2D
 class_name player
 var username : String = ""
 
+
+
 func _enter_tree() -> void:
 	set_multiplayer_authority(str(name).to_int())
 
 func _ready() -> void:
+	if !MultiplayerManagement.playing_multiplayer:
+		return
+	
 	if not is_multiplayer_authority(): 
 		return
 	
@@ -15,6 +20,9 @@ func _ready() -> void:
 
 
 func _physics_process(_delta):
+	if !MultiplayerManagement.playing_multiplayer:
+		return
+	
 	if not is_multiplayer_authority(): 
 		return
 	
