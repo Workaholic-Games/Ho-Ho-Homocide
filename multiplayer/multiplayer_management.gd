@@ -11,4 +11,5 @@ func decode():
 		ip_segments.append(str(byte))
 	
 	var orignial_ip: String = ".".join(ip_segments)
+	multiplayer_stats["ip"] = orignial_ip
 	print("Decoded IP: " + orignial_ip)
