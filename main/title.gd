@@ -16,3 +16,17 @@ func _on_singleplayer_pressed() -> void:
 
 func _on_button_3_pressed() -> void:
 	SaveManager.player_data.change_holiday_cheer(10)
+
+
+func _on_multiplayer_pressed() -> void:
+	$Camera2D/Buttons.hide()
+	$Camera2D/Host.show()
+	$Camera2D/Join.show()
+
+
+func _on_host_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_join_pressed() -> void:
+	pass # Replace with function body.

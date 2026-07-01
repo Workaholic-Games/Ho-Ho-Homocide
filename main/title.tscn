@@ -35,21 +35,46 @@ offset_bottom = 45.0
 text = "Ho Ho Homocide"
 horizontal_alignment = 1
 
-[node name="Singleplayer" type="Button" parent="Camera2D" unique_id=1762176539]
+[node name="Host" type="Button" parent="Camera2D" unique_id=1468128076]
+visible = false
+offset_left = 60.0
+offset_top = 152.0
+offset_right = 279.0
+offset_bottom = 178.0
+text = "Host"
+
+[node name="Join" type="Button" parent="Camera2D" unique_id=1589221723]
+visible = false
+offset_left = 354.0
+offset_top = 152.0
+offset_right = 573.0
+offset_bottom = 178.0
+text = "Join"
+
+[node name="Buttons" type="Control" parent="Camera2D" unique_id=151083068]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Singleplayer" type="Button" parent="Camera2D/Buttons" unique_id=1762176539]
+layout_mode = 0
 offset_left = 208.0
 offset_top = 112.0
 offset_right = 427.0
 offset_bottom = 138.0
 text = "Singleplayer"
 
-[node name="Button2" type="Button" parent="Camera2D" unique_id=1503208763]
+[node name="Multiplayer" type="Button" parent="Camera2D/Buttons" unique_id=1503208763]
+layout_mode = 0
 offset_left = 208.0
 offset_top = 152.0
 offset_right = 427.0
 offset_bottom = 178.0
 text = "Multiplayer"
 
-[node name="Button3" type="Button" parent="Camera2D" unique_id=1971678280]
+[node name="Button3" type="Button" parent="Camera2D/Buttons" unique_id=1971678280]
+layout_mode = 0
 offset_left = 208.0
 offset_top = 200.0
 offset_right = 427.0
@@ -66,5 +91,8 @@ offset_right = 94.0
 offset_bottom = 54.0
 text = "Holiday Cheer: "
 
-[connection signal="pressed" from="Camera2D/Singleplayer" to="." method="_on_singleplayer_pressed"]
-[connection signal="pressed" from="Camera2D/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Camera2D/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Camera2D/Join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="Camera2D/Buttons/Singleplayer" to="." method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="Camera2D/Buttons/Multiplayer" to="." method="_on_multiplayer_pressed"]
+[connection signal="pressed" from="Camera2D/Buttons/Button3" to="." method="_on_button_3_pressed"]
