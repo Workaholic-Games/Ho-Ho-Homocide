@@ -1,6 +1,7 @@
 extends Node2D
 
 
+
 func _process(_delta: float) -> void:
 	$Label.text = "Holiday Cheer: " + str(SaveManager.player_data.holiday_cheer)
 	if Input.is_action_just_pressed("save"):
@@ -10,8 +11,8 @@ func _process(_delta: float) -> void:
 
 
 func _on_singleplayer_pressed() -> void:
+	MultiplayerManagement.playing_multiplayer = false
 	get_tree().change_scene_to_file("res://levels/workshop.tscn")
-	pass # Replace with function body.
 
 
 func _on_button_3_pressed() -> void:
@@ -20,13 +21,28 @@ func _on_button_3_pressed() -> void:
 
 func _on_multiplayer_pressed() -> void:
 	$Camera2D/Buttons.hide()
-	$Camera2D/Host.show()
-	$Camera2D/Join.show()
+	$Camera2D/MultiplayerButtons.show()
+
+
 
 
 func _on_host_pressed() -> void:
-	pass # Replace with function body.
+	if !$Camera2D/MultiplayerButtons/username.text:
+		return
+	
+	MultiplayerManagement.playing_multiplayer = true
+	MultiplayerManagement.multiplayer_stats["username"] = $Camera2D/MultiplayerButtons/username.text
+	get_tree().change_scene_to_file("res://multiplayer/multiplayer_lobby.tscn")
 
 
 func _on_join_pressed() -> void:
-	pass # Replace with function body.
+	if !$Camera2D/MultiplayerButtons/code.text:
+		return
+		
+	if !$Camera2D/MultiplayerButtons/username.text:
+		return
+	
+	MultiplayerManagement.playing_multiplayer = true
+	MultiplayerManagement.multiplayer_stats["username"] = $Camera2D/MultiplayerButtons/username.text
+	MultiplayerManagement.multiplayer_stats["ip"] = $Camera2D/MultiplayerButtons/code.text
+	get_tree().change_scene_to_file("res://multiplayer/multiplayer_lobby.tscn")
