@@ -40,7 +40,7 @@ func subtract_time(seconds_to_lose: float) -> void:
 	start_awake_timer(new_progress)
 
 func end():
-	print("[Member] has woken up!")
+	get_tree().change_scene_to_packed(load("res://levels/workshop.tscn"))
 
 func set_hazards(amount: int):
 	var available_hazards = level.active_hazards.keys()
