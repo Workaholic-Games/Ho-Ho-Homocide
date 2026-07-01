@@ -11,7 +11,6 @@ func _ready() -> void:
 	multiplayer.connection_failed.connect(on_connected_fail)
 	multiplayer.server_disconnected.connect(on_server_disconnected)
 	multiplayer.peer_disconnected.connect(on_player_disconnected)
-	MultiplayerManagement.decode()
 	if MultiplayerManagement.playing_multiplayer == true:
 		if MultiplayerManagement.multiplayer_stats["ip"] == "host":
 			host()
