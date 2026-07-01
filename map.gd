@@ -10,7 +10,6 @@ func _ready() -> void:
 	
 	if my_level_data:
 		my_level_data = my_level_data.duplicate()
-		randomize()
 		my_level_data.difficulty = randi_range(1, 5)
 		my_level_data.scale_hazards()
 		print(my_level_data.active_hazards)
