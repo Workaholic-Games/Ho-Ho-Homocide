@@ -76,6 +76,15 @@ func upnp_setup():
 	
 	public_ip = upnp.query_external_address()
 	print("IP is: " + str(public_ip))
+	var ip_segments = public_ip.split(".")
+	var raw_bytes = PackedByteArray()
+	for segment in ip_segments:
+		raw_bytes.append(segment.to_int())
+	
+	var encoded_session_key: String = Marshalls.raw_to_base64(raw_bytes)
+	encoded_session_key = encoded_session_key.replace("=", "")
+	print("Encoded: " + encoded_session_key)
+	
 
 func on_connected_fail():
 	get_tree().change_scene_to_file("res://main/title.tscn")
