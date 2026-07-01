@@ -16,6 +16,7 @@ func _ready() -> void:
 		if MultiplayerManagement.multiplayer_stats["ip"] == "host":
 			host()
 		else:
+			MultiplayerManagement.decode()
 			join(MultiplayerManagement.multiplayer_stats["ip"])
 	else:
 		var the_player = player_scene.instantiate()
@@ -34,7 +35,6 @@ func host() -> void:
 
 
 func join(ip) -> void:
-	MultiplayerManagement.decode()
 	if ip == "bulba.net": enet_peer.create_client("67.160.110.100", port)
 	elif ip == "sawyer.net": 
 		enet_peer.create_client("184.182.0.132", port)
