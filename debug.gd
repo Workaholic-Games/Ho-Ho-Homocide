@@ -2,7 +2,7 @@ extends Node2D
 
 func _ready() -> void:
 	print("Multiplayer encryption test:")
-	var test_ip = "192.168.1.100"
+	var test_ip = "host"
 	
 	for method in MultiplayerManagement.obfuscation_type.values():
 		MultiplayerManagement.active_method = method

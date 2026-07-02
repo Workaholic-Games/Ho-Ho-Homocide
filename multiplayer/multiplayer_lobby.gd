@@ -15,7 +15,7 @@ func _ready() -> void:
 		if MultiplayerManagement.multiplayer_stats["ip"] == "host":
 			host()
 		else:
-			var target = MultiplayerManagement.decode(MultiplayerManagement.decode(MultiplayerManagement.multiplayer_stats["ip"]))
+			var target = MultiplayerManagement.	decode(MultiplayerManagement.multiplayer_stats["ip"])
 			join(target)
 	else:
 		var the_player = player_scene.instantiate()
