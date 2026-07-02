@@ -20,11 +20,14 @@ func upnp_setup():
 	
 	assert(upnp.get_gateway() and upnp.get_gateway().is_valid_gateway(), \
 		"UPNP Invalid Gateway!")
-
+	
 	var map_result = upnp.add_port_mapping(port)
 	assert(map_result == UPNP.UPNP_RESULT_SUCCESS, \
 		"UPNP Port Mapping Failed! Error %s" % map_result)
-	
+	var pool = obfuscation_type.values()
+	pool.erase(obfuscation_type.NONE)
+	active_method = pool.pick_random() as obfuscation_type
+	print(active_method)
 	print("Success!")
 
 func encode(ip: String) -> String:
