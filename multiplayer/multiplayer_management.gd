@@ -24,13 +24,15 @@ func upnp_setup():
 	var map_result = upnp.add_port_mapping(port)
 	assert(map_result == UPNP.UPNP_RESULT_SUCCESS, \
 		"UPNP Port Mapping Failed! Error %s" % map_result)
+
+	print("Success!")
+
+func encode(ip: String) -> String:
 	var pool = obfuscation_type.values()
 	pool.erase(obfuscation_type.NONE)
 	active_method = pool.pick_random() as obfuscation_type
 	print(active_method)
-	print("Success!")
-
-func encode(ip: String) -> String:
+	
 	var raw_bytes = ip_to_bytes(ip)
 	var prefix = ""
 	var encoded_body = ""
