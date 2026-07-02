@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://pxshmgheltaw" path="res://multiplayer/multiplayer_lobby.gd" id="1_adslu"]
 [ext_resource type="Texture2D" uid="uid://bm22jkk57rbgk" path="res://floor.png" id="1_yfjim"]
+[ext_resource type="PackedScene" uid="uid://7tbtc5qng4re" path="res://main/player.tscn" id="3_6t1ej"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_adslu"]
 texture = ExtResource("1_yfjim")
@@ -25,3 +26,6 @@ _spawnable_scenes = PackedStringArray("uid://7tbtc5qng4re")
 spawn_path = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=599757646]
+
+[node name="Player" parent="." unique_id=2081383243 instance=ExtResource("3_6t1ej")]
+position = Vector2(336, 192)
