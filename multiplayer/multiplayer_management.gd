@@ -28,8 +28,6 @@ func upnp_setup():
 	pool.erase(obfuscation_type.NONE)
 	active_method = pool.pick_random() as obfuscation_type
 	print(active_method)
-	var encoded = MultiplayerManagement.encode(multiplayer_stats["ip"])
-	print("Encoded: ", encoded)
 	print("Success!")
 
 func encode(ip: String) -> String:
