@@ -32,7 +32,11 @@ func host() -> void:
 	multiplayer.peer_disconnected.connect(remove_player)
 	add_player(multiplayer.get_unique_id())
 	MultiplayerManagement.upnp_setup()
-	MultiplayerManagement.encode(MultiplayerManagement.multiplayer_stats["ip"])
+	var host_ip = MultiplayerManagement.multiplayer_stats["ip"]
+	if MultiplayerManagement.upnp and MultiplayerManagement.upnp.query_external_address():
+		host_ip = MultiplayerManagement.upnp.query_external_address()
+	var join_code = MultiplayerManagement.encode(host_ip)
+	print("hosted ", join_code)
 
 
 func join(ip) -> void:
