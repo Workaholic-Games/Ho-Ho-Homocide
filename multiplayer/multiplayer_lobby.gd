@@ -1,9 +1,8 @@
 extends Node2D
 const player_scene = preload("res://main/player.tscn")
-const port = 9998
 var enet_peer = ENetMultiplayerPeer.new()
 var my_player : player
-var public_ip : String = ""
+var port = MultiplayerManagement.port
 @export var players : Dictionary = {}
 
 
@@ -16,7 +15,7 @@ func _ready() -> void:
 		if MultiplayerManagement.multiplayer_stats["ip"] == "host":
 			host()
 		else:
-			MultiplayerManagement.decode()
+			MultiplayerManagement.decode(MultiplayerManagement.)
 			join(MultiplayerManagement.multiplayer_stats["ip"])
 	else:
 		var the_player = player_scene.instantiate()
@@ -32,7 +31,8 @@ func host() -> void:
 	multiplayer.peer_connected.connect(add_player)
 	multiplayer.peer_disconnected.connect(remove_player)
 	add_player(multiplayer.get_unique_id())
-	upnp_setup()
+	MultiplayerManagement.upnp_setup()
+	MultiplayerManagement.encode(MultiplayerManagement.multiplayer_stats["ip"])
 
 
 func join(ip) -> void:
@@ -57,33 +57,6 @@ func remove_player(peer_id):
 	var the_player = get_node_or_null(str(peer_id))
 	if the_player:
 		the_player.queue_free()
-
-func upnp_setup():
-	var upnp = UPNP.new()
-	
-	var discover_result = upnp.discover()
-	assert(discover_result == UPNP.UPNP_RESULT_SUCCESS, \
-		"UPNP Discover Failed! Error %s" % discover_result)
-	
-	assert(upnp.get_gateway() and upnp.get_gateway().is_valid_gateway(), \
-		"UPNP Invalid Gateway!")
-
-	var map_result = upnp.add_port_mapping(port)
-	assert(map_result == UPNP.UPNP_RESULT_SUCCESS, \
-		"UPNP Port Mapping Failed! Error %s" % map_result)
-	
-	print("Success!")
-	
-	public_ip = upnp.query_external_address()
-	print("IP is: " + str(public_ip))
-	var ip_segments = public_ip.split(".")
-	var raw_bytes = PackedByteArray()
-	for segment in ip_segments:
-		raw_bytes.append(segment.to_int())
-	
-	var encoded_session_key: String = Marshalls.raw_to_base64(raw_bytes)
-	encoded_session_key = encoded_session_key.replace("=", "")
-	print("Encoded: " + encoded_session_key)
 
 func on_connected_fail():
 	MultiplayerManagement.playing_multiplayer = false
