@@ -16,7 +16,11 @@ func _ready() -> void:
 			host()
 		else:
 			var target = MultiplayerManagement.	decode(MultiplayerManagement.multiplayer_stats["ip"])
-			join(target)
+			if target.is_empty():
+				print("Connection failed: Invalid code")
+				get_tree().change_scene_to_file("res://main/title.tscn")
+			else:
+				join(target)
 	else:
 		var the_player = player_scene.instantiate()
 		the_player.name = str(multiplayer.get_unique_id())

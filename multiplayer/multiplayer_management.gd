@@ -120,6 +120,9 @@ func ip_to_bytes(ip: String) -> PackedByteArray:
 	return bytes
 
 func bytes_to_ip(bytes: PackedByteArray) -> String:
+	if bytes.size() != 4:
+		return ""
+	
 	var segments: Array = []
 	for byte in bytes:
 		segments.append(str(byte))
