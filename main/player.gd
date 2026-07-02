@@ -20,11 +20,11 @@ func _ready() -> void:
 
 
 func _physics_process(_delta):
-	if MultiplayerManagement.playing_multiplayer:
-		if not is_multiplayer_authority(): 
-			return
-		return
-	
+	#if MultiplayerManagement.playing_multiplayer:
+		#if not is_multiplayer_authority(): 
+			#return
+		#return
+	#
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = direction * SaveManager.player_data.speed
 	move_and_slide()
