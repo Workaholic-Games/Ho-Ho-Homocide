@@ -22,6 +22,7 @@ func _ready() -> void:
 		var the_player = player_scene.instantiate()
 		the_player.name = str(multiplayer.get_unique_id())
 		the_player.username = MultiplayerManagement.multiplayer_stats["username"]
+		the_player.position = Vector2(336.0, 192.0)
 		add_child(the_player)
 
 
@@ -50,7 +51,6 @@ func add_player(peer_id):
 	add_child(the_player)
 	change_username.rpc(peer_id)
 	my_player = get_node_or_null(str(peer_id))
-	my_player.position = Vector2(336.0, 192.0)
 	players.get_or_add(the_player.username)
 
 func remove_player(peer_id):
