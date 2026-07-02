@@ -26,6 +26,14 @@ autoscroll = Vector2(-23.935, 0)
 position = Vector2(320, 180)
 texture = ExtResource("3_x183l")
 
+[node name="Requires" type="Label" parent="Camera2D" unique_id=244299905]
+visible = false
+offset_left = 12.0
+offset_top = 8.0
+offset_right = 72.0
+offset_bottom = 26.0
+text = "*Requires:"
+
 [node name="Label" type="Label" parent="Camera2D" unique_id=1742020062]
 offset_left = 80.0
 offset_top = 16.0
@@ -106,10 +114,10 @@ placeholder_text = "Input Username"
 alignment = 1
 
 [node name="Label" type="Label" parent="." unique_id=246557514]
-offset_left = 54.0
-offset_top = 36.0
-offset_right = 94.0
-offset_bottom = 54.0
+offset_left = 67.0
+offset_top = 41.0
+offset_right = 169.0
+offset_bottom = 59.0
 text = "Holiday Cheer: "
 
 [connection signal="pressed" from="Camera2D/Buttons/Singleplayer" to="." method="_on_singleplayer_pressed"]

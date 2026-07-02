@@ -1,15 +1,25 @@
 extends Node2D
+@export var random_strength: float = 20.0
+@export var shake_fade: float = 5.0
+var text = "*Requires:"
+var shake_strength: float = 0
+var username_requirement: bool = false
+var code_requirement: bool = false
+
+func apply_strength():
+	shake_strength = random_strength
 
 
-
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	$Label.text = "Holiday Cheer: " + str(SaveManager.player_data.holiday_cheer)
 	if Input.is_action_just_pressed("save"):
 		SaveManager.save_data()
 	if Input.is_action_just_pressed("load"):
 		SaveManager.load_data()
-
-
+	if shake_strength > 0.0:
+		shake_strength = lerpf(shake_strength, 0, shake_fade * delta)
+		$Camera2D.offset.x = randf_range(-shake_strength, shake_strength)
+		
 func _on_singleplayer_pressed() -> void:
 	MultiplayerManagement.playing_multiplayer = false
 	get_tree().change_scene_to_file("res://levels/workshop.tscn")
@@ -28,6 +38,11 @@ func _on_multiplayer_pressed() -> void:
 
 func _on_host_pressed() -> void:
 	if !$Camera2D/MultiplayerButtons/username.text:
+		$Camera2D/Requires.show()
+		if !username_requirement:
+			$Camera2D/Requires.text += "\nUsername"
+			username_requirement = !username_requirement
+		apply_strength()
 		return
 	
 	MultiplayerManagement.playing_multiplayer = true
@@ -37,9 +52,18 @@ func _on_host_pressed() -> void:
 
 func _on_join_pressed() -> void:
 	if !$Camera2D/MultiplayerButtons/code.text:
+		$Camera2D/Requires.show()
+		if !code_requirement:
+			$Camera2D/Requires.text += "\nInput Code"
+			code_requirement = !code_requirement
+		apply_strength()
 		return
-		
-	if !$Camera2D/MultiplayerButtons/username.text:
+	elif !$Camera2D/MultiplayerButtons/username.text:
+		$Camera2D/Requires.show()
+		if !username_requirement:
+			$Camera2D/Requires.text += "\nUsername"
+			username_requirement = !username_requirement
+		apply_strength()
 		return
 	
 	MultiplayerManagement.playing_multiplayer = true
