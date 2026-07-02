@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://byehxsgtf2w5h" path="res://main/player.gd" id="1_ou4ca"]
 [ext_resource type="Texture2D" uid="uid://3fw4tkypw47p" path="res://player.png" id="2_ab3tm"]
+[ext_resource type="Script" uid="uid://dcjcp0rsxxx8j" path="res://follow_cam.gd" id="3_4v151"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3poc4"]
-size = Vector2(26, 15)
+size = Vector2(51, 23.5)
 
 [sub_resource type="Animation" id="Animation_ab3tm"]
 resource_name = "Idle"
@@ -91,9 +92,6 @@ shape = SubResource("RectangleShape2D_3poc4")
 [node name="Animation" type="AnimationPlayer" parent="." unique_id=547275370]
 libraries/ = SubResource("AnimationLibrary_lat6o")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=459808920]
-zoom = Vector2(2, 2)
-
 [node name="Label" type="Label" parent="." unique_id=354579466]
 offset_left = -64.0
 offset_top = 1.0
@@ -108,3 +106,8 @@ autowrap_mode = 3
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=2023574286]
 replication_config = SubResource("SceneReplicationConfig_ab3tm")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=181752156]
+limit_left = 0
+limit_top = 0
+script = ExtResource("3_4v151")

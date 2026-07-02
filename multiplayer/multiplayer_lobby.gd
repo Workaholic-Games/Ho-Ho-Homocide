@@ -101,7 +101,7 @@ func on_player_disconnected(id):
 	get_node(str(id)).username = MultiplayerManagement.multiplayer_stats["username"]
 	get_node(str(id)).update_username()
 
-
+	
 func _exit_tree() -> void:
 	if MultiplayerManagement.playing_multiplayer == true:
 		if multiplayer.is_server():
