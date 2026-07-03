@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://bbt482dn8chio"]
+
+[ext_resource type="Script" uid="uid://3son4a6x46yb" path="res://multiplayer/start_button.gd" id="1_oxqp4"]
+[ext_resource type="Texture2D" uid="uid://bw6eoin5f5fq3" path="res://computer/computer.png" id="2_ykx3c"]
+[ext_resource type="PackedScene" uid="uid://c4aqnatflm4qf" path="res://interaction/interaction_area/interaction_area.tscn" id="3_t5s0v"]
+[ext_resource type="AudioStream" uid="uid://1x1gvbjj0avr" path="res://Mouse Click Sound Effect.mp3" id="4_k5yc6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcbbq"]
+atlas = ExtResource("2_ykx3c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jr5mb"]
+atlas = ExtResource("2_ykx3c")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xfga"]
+atlas = ExtResource("2_ykx3c")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wy26k"]
+atlas = ExtResource("2_ykx3c")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1uhn"]
+atlas = ExtResource("2_ykx3c")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxngq"]
+atlas = ExtResource("2_ykx3c")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiass"]
+atlas = ExtResource("2_ykx3c")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgtsp"]
+atlas = ExtResource("2_ykx3c")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7oi2"]
+atlas = ExtResource("2_ykx3c")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8epoo"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_gcbbq")
+}, {
+"duration": 1.9,
+"texture": SubResource("AtlasTexture_jr5mb")
+}, {
+"duration": 1.8,
+"texture": SubResource("AtlasTexture_4xfga")
+}, {
+"duration": 1.7,
+"texture": SubResource("AtlasTexture_wy26k")
+}, {
+"duration": 1.6,
+"texture": SubResource("AtlasTexture_k1uhn")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_gxngq")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_iiass")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_pgtsp")
+}, {
+"duration": 1.3,
+"texture": SubResource("AtlasTexture_o7oi2")
+}],
+"loop": 0,
+"name": &"open",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3poc4"]
+radius = 60.0
+
+[node name="Computer" type="Node2D" unique_id=972793786]
+script = ExtResource("1_oxqp4")
+
+[node name="Computer" type="AnimatedSprite2D" parent="." unique_id=1225225574]
+sprite_frames = SubResource("SpriteFrames_8epoo")
+animation = &"open"
+
+[node name="InteractionArea" parent="." unique_id=1504337543 instance=ExtResource("3_t5s0v")]
+action_name = "start"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1125910233]
+shape = SubResource("CircleShape2D_3poc4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=57824083]
+stream = ExtResource("4_k5yc6")

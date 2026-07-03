@@ -16,8 +16,7 @@ func _ready() -> void:
 	
 	$Camera2D.make_current()
 	update_username()
-
-
+	position = Vector2(336.0, 192.0)
 
 func _physics_process(_delta):
 	#if MultiplayerManagement.playing_multiplayer:
