@@ -27,8 +27,10 @@ func _process(_delta: float) -> void:
 		label.hide()
 
 func sort_by_distance_to_player(area1, area2):
-	var area1_to_player = MultiplayerManagement.local_player.distance_to(area1.global_position)
-	var area2_to_player = MultiplayerManagement.local_player.distance_to(area2.global_position)
+	var player_pos = MultiplayerManagement.local_player.global_position 
+	
+	var area1_to_player = player_pos.distance_to(area1.global_position)
+	var area2_to_player = player_pos.distance_to(area2.global_position)
 	return area1_to_player < area2_to_player
 	
 func _input(event: InputEvent) -> void:

@@ -1,9 +1,11 @@
 extends Node
 
+@export var players : Dictionary = {}
+
 var playing_multiplayer : bool = false
-var multiplayer_stats : Dictionary = {"username" = "peasant", "ip" = "host", "session_id" = session_id}
+var multiplayer_stats : Dictionary = {"username" = "peasant", "ip" = "host"}
 var public_ip : String = ""
-var local_player: Vector2
+var local_player: Node = null
 var upnp: UPNP = null
 var active_method: obfuscation_type = obfuscation_type.BASE64
 

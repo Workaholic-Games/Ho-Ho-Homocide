@@ -26,8 +26,11 @@ rendering_quadrant_size = 32
 _spawnable_scenes = PackedStringArray("uid://7tbtc5qng4re")
 spawn_path = NodePath("..")
 
+[node name="Computer" parent="." unique_id=972793786 node_paths=PackedStringArray("labels") instance=ExtResource("4_uf1lj")]
+position = Vector2(296, 136)
+labels = [NodePath("../CanvasLayer/Label"), NodePath("../CanvasLayer/Label2")]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=599757646]
-visible = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1843359847]
 offset_right = 40.0
@@ -43,7 +46,30 @@ layout_mode = 2
 texture_normal = ExtResource("3_6t1ej")
 stretch_mode = 0
 
-[node name="Computer" parent="." unique_id=972793786 instance=ExtResource("4_uf1lj")]
-position = Vector2(296, 136)
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1485140355]
+visible = false
+offset_left = 136.0
+offset_top = 120.0
+offset_right = 528.0
+offset_bottom = 293.0
+theme_override_font_sizes/font_size = 75
+text = "Naughty
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=762381153]
+offset_left = 136.0
+offset_top = 120.0
+offset_right = 528.0
+offset_bottom = 205.0
+theme_override_font_sizes/font_size = 75
+text = "Nice"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="CycleTimer" type="Timer" parent="." unique_id=2110048965]
 
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/Copy" to="." method="_on_copy_pressed"]

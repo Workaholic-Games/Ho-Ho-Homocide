@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name player
 var username : String = ""
+var team: String = ""
 
 
 
