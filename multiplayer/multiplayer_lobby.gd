@@ -76,14 +76,22 @@ func host() -> void:
 	print(players)
 
 func join(ip) -> void:
-	if ip == "bulba.net": enet_peer.create_client("67.160.110.100", port)
-	elif ip == "sawyer.net": 
-		enet_peer.create_client("184.182.0.132", port)
-	else: 
-		enet_peer.create_client(ip, port)
+	if enet_peer.get_connection_status() != MultiplayerPeer.CONNECTION_DISCONNECTED:
+		enet_peer.close()
+	enet_peer = ENetMultiplayerPeer.new()
 	
+	var err
+	if ip == "bulba.net":
+		err = enet_peer.create_client("67.160.110.100", port)
+	elif ip == "sawyer.net":
+		err = enet_peer.create_client("184.182.0.132", port)
+	else:
+		err = enet_peer.create_client(ip, port)
+	
+	if err != OK:
+		print("Client creation failed: ", err)
+		return
 	multiplayer.multiplayer_peer = enet_peer
-	print(ip)
 
 func remove_player(peer_id):
 	var the_player = get_node_or_null(str(peer_id))
