@@ -15,7 +15,7 @@ var my_team = "nice"
 
 var session_id: int = 0
 
-const port = 45319
+const port = 20188
 
 const SECRET_KEY: String = "BulbasaurSmells1" #16 ,24, 32
 

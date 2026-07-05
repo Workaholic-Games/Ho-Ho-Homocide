@@ -13,7 +13,6 @@ var host_ip = "127.0.0.1"
 
 func _ready() -> void:
 	http.request_completed.connect(on_request_completed)
-	http.request("https://api.ipify.org/")
 	multiplayer.connection_failed.connect(on_connected_fail)
 	multiplayer.server_disconnected.connect(on_server_disconnected)
 	multiplayer.peer_disconnected.connect(on_player_disconnected)
@@ -27,6 +26,8 @@ func _ready() -> void:
 	
 	if MultiplayerManagement.playing_multiplayer == true:
 		if MultiplayerManagement.multiplayer_stats["ip"] == "host":
+			http.request("https://api.ipify.org/")
+			await http.request_completed
 			host()
 		else:
 			var decoded_result = MultiplayerManagement.decode(MultiplayerManagement.multiplayer_stats["ip"])
