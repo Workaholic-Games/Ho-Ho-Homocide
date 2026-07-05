@@ -52,10 +52,19 @@ func on_request_completed(_result, response_code, _headers, body):
 		print(host_ip)
 
 func host() -> void:
+	if enet_peer.get_connection_status() != MultiplayerPeer.CONNECTION_DISCONNECTED:
+		enet_peer.close()
+	enet_peer = ENetMultiplayerPeer.new()
+	
+	var err = enet_peer.create_server(port)
+	if err != OK:
+		print("Server creation failed: ", err)
+		return
+	multiplayer.multiplayer_peer = enet_peer
 	#MultiplayerManagement.upnp_setup()
 	#if MultiplayerManagement.upnp and MultiplayerManagement.upnp.query_external_address():
 		#host_ip = MultiplayerManagement.upnp.query_external_address()
-	enet_peer.create_server(port)
+	#enet_peer.create_server(port)
 	multiplayer.multiplayer_peer = enet_peer
 	join_code = MultiplayerManagement.encode(host_ip)
 	
@@ -103,7 +112,6 @@ func on_player_disconnected(id):
 			return
 
 		server_spawn_player(sender_id, client_username)
-		
 
 @rpc("any_peer") func reject_client():
 	print("Connection rejected by server: Invalid Session ID.")
