@@ -102,11 +102,16 @@ func on_player_disconnected(id):
 		
 	get_tree().change_scene_to_file("res://main/title.tscn")
 
+@rpc("any_peer") func change_username(id):
+	get_node(str(id)).username = MultiplayerManagement.multiplayer_stats["username"]
+	get_node(str(id)).update_username()
+
 func server_spawn_player(id: int, username: String):
 	var the_player = player_scene.instantiate()
 	the_player.name = str(id)
 	the_player.username = username
 	add_child(the_player)
+	change_username.rpc(id)
 
 func setup_local_player(id: int, the_player: Node):
 	players[id] = the_player
@@ -116,13 +121,10 @@ func setup_local_player(id: int, the_player: Node):
 	
 	await get_tree().create_timer(0.1).timeout
 	if is_instance_valid(the_player):
-		the_player.update_username()
 		print("The Player Username ", the_player.username)
-
 
 func _on_copy_pressed() -> void:
 	DisplayServer.clipboard_set(join_code)
-
 
 func on_connected_to_server():
 	await get_tree().physics_frame

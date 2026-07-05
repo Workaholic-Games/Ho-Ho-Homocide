@@ -74,11 +74,8 @@ properties/0/path = NodePath(".:position")
 properties/0/spawn = true
 properties/0/replication_mode = 1
 properties/1/path = NodePath("Label:text")
-properties/1/spawn = true
+properties/1/spawn = false
 properties/1/replication_mode = 2
-properties/2/path = NodePath(".:username")
-properties/2/spawn = true
-properties/2/replication_mode = 1
 
 [node name="Player" type="CharacterBody2D" unique_id=2081383243 groups=["player"]]
 z_index = 2
@@ -108,6 +105,9 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=2023574286]
+replication_config = SubResource("SceneReplicationConfig_ab3tm")
+
+[node name="MultiplayerSynchronizer2" type="MultiplayerSynchronizer" parent="." unique_id=304869862]
 replication_config = SubResource("SceneReplicationConfig_ab3tm")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=181752156]
