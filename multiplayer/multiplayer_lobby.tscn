@@ -73,4 +73,6 @@ uppercase = true
 
 [node name="CycleTimer" type="Timer" parent="." unique_id=2110048965]
 
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=358391649]
+
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/Copy" to="." method="_on_copy_pressed"]

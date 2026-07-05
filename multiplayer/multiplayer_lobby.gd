@@ -1,13 +1,19 @@
 extends Node2D
+
+@onready var http = $HTTPRequest
+
 const player_scene = preload("res://main/player.tscn")
 var enet_peer = ENetMultiplayerPeer.new()
 var my_player : player
 var port = MultiplayerManagement.port
 var join_code: String
 var players = MultiplayerManagement.players
+var host_ip = "127.0.0.1"
 
 
 func _ready() -> void:
+	http.request_completed.connect(on_request_completed)
+	http.request("https://api.ipify.org/")
 	multiplayer.connection_failed.connect(on_connected_fail)
 	multiplayer.server_disconnected.connect(on_server_disconnected)
 	multiplayer.peer_disconnected.connect(on_player_disconnected)
@@ -39,9 +45,13 @@ func _ready() -> void:
 		the_player.username = MultiplayerManagement.multiplayer_stats["username"]
 		add_child(the_player)
 
+func on_request_completed(_result, response_code, _headers, body):
+	if response_code == 200:
+		host_ip = body.get_string_from_utf8()
+		print(host_ip)
+
 func host() -> void:
 	#MultiplayerManagement.upnp_setup()
-	var host_ip = "127.0.0.1"
 	#if MultiplayerManagement.upnp and MultiplayerManagement.upnp.query_external_address():
 		#host_ip = MultiplayerManagement.upnp.query_external_address()
 	enet_peer.create_server(port)
@@ -63,6 +73,7 @@ func join(ip) -> void:
 		enet_peer.create_client(ip, port)
 	
 	multiplayer.multiplayer_peer = enet_peer
+	print(ip)
 
 func remove_player(peer_id):
 	var the_player = get_node_or_null(str(peer_id))
