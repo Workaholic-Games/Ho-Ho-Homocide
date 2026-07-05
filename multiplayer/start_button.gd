@@ -60,7 +60,7 @@ func run_local_animation_cycle():
 	var timer_length = 1.5
 	
 	var local_uid = multiplayer.get_unique_id()
-	var my_team = "nice" # Fallback default
+	var my_team = MultiplayerManagement.my_team
 	
 	if players.has(local_uid) and is_instance_valid(players[local_uid]):
 		my_team = players[local_uid].team

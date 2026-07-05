@@ -16,6 +16,7 @@ func _ready() -> void:
 	child_entered_tree.connect(func(node):
 		if node.is_in_group("players") or node.name.to_int() > 0:
 			setup_local_player(node.name.to_int(), node)
+			print("player_added")
 	)
 	
 	if MultiplayerManagement.playing_multiplayer == true:
@@ -50,7 +51,7 @@ func host() -> void:
 	server_spawn_player(multiplayer.get_unique_id(), MultiplayerManagement.multiplayer_stats["username"])
 	multiplayer.peer_disconnected.connect(remove_player)
 
-	$CanvasLayer.show()
+	$CanvasLayer/HBoxContainer.show()
 	$CanvasLayer/HBoxContainer/Label.text += join_code
 	print(players)
 
@@ -90,6 +91,7 @@ func on_player_disconnected(id):
 			return
 
 		server_spawn_player(sender_id, client_username)
+		
 
 @rpc("any_peer") func reject_client():
 	print("Connection rejected by server: Invalid Session ID.")
@@ -115,6 +117,7 @@ func setup_local_player(id: int, the_player: Node):
 	await get_tree().create_timer(0.1).timeout
 	if is_instance_valid(the_player):
 		the_player.update_username()
+		print("The Player Username ", the_player.username)
 
 
 func _on_copy_pressed() -> void:
@@ -124,3 +127,4 @@ func _on_copy_pressed() -> void:
 func on_connected_to_server():
 	await get_tree().physics_frame
 	verify_session.rpc_id(1, MultiplayerManagement.multiplayer_stats["username"], MultiplayerManagement.session_id)
+	print("connection_username: ", MultiplayerManagement.multiplayer_stats["username"])

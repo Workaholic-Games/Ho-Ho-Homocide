@@ -60,6 +60,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Label2" type="Label" parent="CanvasLayer" unique_id=762381153]
+visible = false
 offset_left = 136.0
 offset_top = 120.0
 offset_right = 528.0
