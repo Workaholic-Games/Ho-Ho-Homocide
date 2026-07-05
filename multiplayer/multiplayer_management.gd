@@ -2,6 +2,9 @@ extends Node
 
 @export var players : Dictionary = {}
 
+var peer: ENetMultiplayerPeer
+
+
 var playing_multiplayer : bool = false
 var multiplayer_stats : Dictionary = {"username" = "peasant", "ip" = "host"}
 var public_ip : String = ""
@@ -12,11 +15,16 @@ var my_team = "nice"
 
 var session_id: int = 0
 
-const port = 9998
+const port = 45319
 
 const SECRET_KEY: String = "BulbasaurSmells1" #16 ,24, 32
 
 enum obfuscation_type {NONE, XOR, HEX, AES, BASE64}
+
+func start_server():
+	peer = ENetMultiplayerPeer.new()
+	peer.create_server(port)
+	multiplayer.multiplayer_peer = peer
 
 func upnp_setup():
 	upnp = UPNP.new()
@@ -73,8 +81,7 @@ func encode(ip: String) -> String:
 			encoded_body = encoded_session_key
 	print(session_id)
 	return prefix + encoded_body
-	
-	
+
 func decode(encoded_str: String) -> String:
 	if encoded_str.is_empty(): return ""
 	var identifier = encoded_str.substr(0, 1)

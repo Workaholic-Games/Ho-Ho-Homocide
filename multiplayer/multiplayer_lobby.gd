@@ -40,10 +40,10 @@ func _ready() -> void:
 		add_child(the_player)
 
 func host() -> void:
-	MultiplayerManagement.upnp_setup()
+	#MultiplayerManagement.upnp_setup()
 	var host_ip = "127.0.0.1"
-	if MultiplayerManagement.upnp and MultiplayerManagement.upnp.query_external_address():
-		host_ip = MultiplayerManagement.upnp.query_external_address()
+	#if MultiplayerManagement.upnp and MultiplayerManagement.upnp.query_external_address():
+		#host_ip = MultiplayerManagement.upnp.query_external_address()
 	enet_peer.create_server(port)
 	multiplayer.multiplayer_peer = enet_peer
 	join_code = MultiplayerManagement.encode(host_ip)
