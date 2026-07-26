@@ -32,6 +32,7 @@ func update_username():
 func update_team_visuals():
 	if team == "naughty":
 		print("naughty")
+		$Label.add_theme_color_override("font_color", Color(0.812, 0.0, 0.0, 1.0))
 		if players[1]:
 			print("Grinch: ", players[1])
 	else:
