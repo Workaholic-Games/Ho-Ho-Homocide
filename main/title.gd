@@ -5,6 +5,7 @@ var text = "*Requires:"
 var shake_strength: float = 0
 var username_requirement: bool = false
 var code_requirement: bool = false
+@onready var code: LineEdit = $Camera2D/MultiplayerButtons/code
 
 func apply_strength():
 	shake_strength = random_strength
@@ -64,4 +65,5 @@ func _on_join_pressed() -> void:
 		return
 	
 	MultiplayerManagement.join_pressed = true
+	MultiplayerManagement.join_code = code.text.to_int()
 	get_tree().change_scene_to_file("res://multiplayer/multiplayer_lobby.tscn")

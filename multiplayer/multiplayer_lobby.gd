@@ -14,7 +14,8 @@ func _ready() -> void:
 	Steam.lobby_joined.connect(on_lobby_joined)
 	if MultiplayerManagement.host_pressed == true:
 		host_lobby()
-	
+	if MultiplayerManagement.join_pressed == true:
+		join_lobby(MultiplayerManagement.join_code)
 func host_lobby():
 	Steam.createLobby(Steam.LOBBY_TYPE_PUBLIC, 16)
 	is_host = true
@@ -51,6 +52,7 @@ func on_lobby_joined(lobby_id: int, permissions: int, locked: bool, response: in
 
 	is_joining = false
 	MultiplayerManagement.join_pressed = false
+	print("join")
 	
 func add_player(id: int = 1):
 	var player = player_scene.instantiate()

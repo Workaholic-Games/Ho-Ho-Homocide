@@ -1,4 +1,6 @@
 extends Node
 
-@export var host_pressed : bool = false
-@export var join_pressed : bool = false
+var host_pressed : bool = false
+var join_pressed : bool = false
+
+var join_code : int = 0
