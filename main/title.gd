@@ -6,6 +6,7 @@ var shake_strength: float = 0
 var username_requirement: bool = false
 var code_requirement: bool = false
 @onready var code: LineEdit = $Camera2D/MultiplayerButtons/code
+@onready var username: LineEdit = $Camera2D/MultiplayerButtons/username
 
 func apply_strength():
 	shake_strength = random_strength
@@ -44,6 +45,7 @@ func _on_host_pressed() -> void:
 			username_requirement = !username_requirement
 		apply_strength()
 		return
+	MultiplayerManagement.username = username.text
 	MultiplayerManagement.host_pressed = true
 	get_tree().change_scene_to_file("res://multiplayer/multiplayer_lobby.tscn")
 
@@ -66,4 +68,5 @@ func _on_join_pressed() -> void:
 	
 	MultiplayerManagement.join_pressed = true
 	MultiplayerManagement.join_code = code.text.to_int()
+	MultiplayerManagement.username = username.text
 	get_tree().change_scene_to_file("res://multiplayer/multiplayer_lobby.tscn")
