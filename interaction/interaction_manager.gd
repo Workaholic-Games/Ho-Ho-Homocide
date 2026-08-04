@@ -17,7 +17,7 @@ func unregister_area(area : InteractionArea):
 
 func _process(_delta: float) -> void:
 	if active_areas.size() > 0 && can_interact:
-		active_areas.sort_custom(sort_by_distance_to_player)
+		#active_areas.sort_custom(sort_by_distance_to_player)
 		label.text = base_text + active_areas[0].action_name
 		label.global_position = active_areas[0].global_position
 		label.global_position.y -= 36
@@ -26,12 +26,12 @@ func _process(_delta: float) -> void:
 	else:
 		label.hide()
 
-func sort_by_distance_to_player(area1, area2):
-	var player_pos = player.global_position 
-	
-	var area1_to_player = player_pos.distance_to(area1.global_position)
-	var area2_to_player = player_pos.distance_to(area2.global_position)
-	return area1_to_player < area2_to_player
+#func sort_by_distance_to_player(area1, area2):
+	#var player_pos = 1 
+	#
+	#var area1_to_player = player_pos.distance_to(area1.global_position)
+	#var area2_to_player = player_pos.distance_to(area2.global_position)
+	#return area1_to_player < area2_to_player
 	
 func _input(event: InputEvent) -> void:
 	#if MultiplayerManagement.local_player:
