@@ -107,9 +107,6 @@ autowrap_mode = 3
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=2023574286]
 replication_config = SubResource("SceneReplicationConfig_ab3tm")
 
-[node name="MultiplayerSynchronizer2" type="MultiplayerSynchronizer" parent="." unique_id=304869862]
-replication_config = SubResource("SceneReplicationConfig_ab3tm")
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=181752156]
 limit_left = 0
 limit_top = 0

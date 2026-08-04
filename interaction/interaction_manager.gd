@@ -34,7 +34,7 @@ func sort_by_distance_to_player(area1, area2):
 	return area1_to_player < area2_to_player
 	
 func _input(event: InputEvent) -> void:
-	if MultiplayerManagement.local_player:
+	#if MultiplayerManagement.local_player:
 		if event.is_action_pressed("interact") && can_interact:
 			if active_areas.size() > 0:
 				can_interact = false

@@ -21,7 +21,6 @@ func _process(delta: float) -> void:
 		$Camera2D.offset.x = randf_range(-shake_strength, shake_strength)
 		
 func _on_singleplayer_pressed() -> void:
-	MultiplayerManagement.playing_multiplayer = false
 	get_tree().change_scene_to_file("res://levels/workshop.tscn")
 
 
@@ -44,9 +43,7 @@ func _on_host_pressed() -> void:
 			username_requirement = !username_requirement
 		apply_strength()
 		return
-	
-	MultiplayerManagement.playing_multiplayer = true
-	MultiplayerManagement.multiplayer_stats["username"] = $Camera2D/MultiplayerButtons/username.text
+	MultiplayerManagement.host_pressed = true
 	get_tree().change_scene_to_file("res://multiplayer/multiplayer_lobby.tscn")
 
 
@@ -66,7 +63,5 @@ func _on_join_pressed() -> void:
 		apply_strength()
 		return
 	
-	MultiplayerManagement.playing_multiplayer = true
-	MultiplayerManagement.multiplayer_stats["username"] = $Camera2D/MultiplayerButtons/username.text
-	MultiplayerManagement.multiplayer_stats["ip"] = $Camera2D/MultiplayerButtons/code.text
+	MultiplayerManagement.join_pressed = true
 	get_tree().change_scene_to_file("res://multiplayer/multiplayer_lobby.tscn")
