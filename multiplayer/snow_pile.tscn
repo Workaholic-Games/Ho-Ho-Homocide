@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bwf8hv2ipdmke"]
+
+[ext_resource type="Script" uid="uid://buy5brft02lrn" path="res://multiplayer/snow_pile.gd" id="1_omjyo"]
+[ext_resource type="Texture2D" uid="uid://q2vnfbw7q2vr" path="res://snow pile.png" id="1_wdqi3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3t11"]
+radius = 15.0
+height = 42.0
+
+[node name="Snow Pile" type="StaticBody2D" unique_id=475473188]
+script = ExtResource("1_omjyo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=178122734]
+texture = ExtResource("1_wdqi3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=297268208]
+position = Vector2(1, 4)
+shape = SubResource("CapsuleShape2D_q3t11")

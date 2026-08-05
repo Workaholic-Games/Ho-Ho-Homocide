@@ -47,7 +47,7 @@ func _on_host_pressed() -> void:
 		return
 	MultiplayerManagement.username = username.text
 	MultiplayerManagement.host_pressed = true
-	get_tree().change_scene_to_file("res://multiplayer/multiplayer_lobby.tscn")
+	get_tree().change_scene_to_file("res://multiplayer/multiplayer_main.tscn")
 
 
 func _on_join_pressed() -> void:
@@ -69,4 +69,4 @@ func _on_join_pressed() -> void:
 	MultiplayerManagement.join_pressed = true
 	MultiplayerManagement.join_code = code.text.to_int()
 	MultiplayerManagement.username = username.text
-	get_tree().change_scene_to_file("res://multiplayer/multiplayer_lobby.tscn")
+	get_tree().change_scene_to_file("res://multiplayer/multiplayer_main.tscn")

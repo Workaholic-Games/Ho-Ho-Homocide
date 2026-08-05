@@ -2,10 +2,12 @@
 
 [ext_resource type="Script" uid="uid://byehxsgtf2w5h" path="res://main/player.gd" id="1_ou4ca"]
 [ext_resource type="Texture2D" uid="uid://3fw4tkypw47p" path="res://player.png" id="2_ab3tm"]
-[ext_resource type="Script" uid="uid://dcjcp0rsxxx8j" path="res://follow_cam.gd" id="3_4v151"]
+[ext_resource type="PackedScene" uid="uid://ccytjnsawr0u3" path="res://multiplayer/snowball_launcher.tscn" id="3_4v151"]
+[ext_resource type="Texture2D" uid="uid://b4bp8p0x783ri" path="res://snow wall.png" id="4_lat6o"]
+[ext_resource type="Texture2D" uid="uid://os6a602uifpp" path="res://snowball.png" id="5_pi8k8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3poc4"]
-size = Vector2(51, 28)
+size = Vector2(51, 20.635)
 
 [sub_resource type="Animation" id="Animation_ab3tm"]
 resource_name = "Idle"
@@ -77,6 +79,11 @@ properties/1/path = NodePath("Label:text")
 properties/1/spawn = false
 properties/1/replication_mode = 2
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3t11"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3t11"]
+size = Vector2(250, 250)
+
 [node name="Player" type="CharacterBody2D" unique_id=2081383243 groups=["player"]]
 z_index = 2
 collision_layer = 2
@@ -108,6 +115,53 @@ autowrap_mode = 3
 replication_config = SubResource("SceneReplicationConfig_ab3tm")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=181752156]
-limit_left = 0
-limit_top = 0
-script = ExtResource("3_4v151")
+
+[node name="Snowball Launcher" parent="." unique_id=1161885801 instance=ExtResource("3_4v151")]
+position = Vector2(-10, -19)
+
+[node name="Placement Preview" type="Sprite2D" parent="." unique_id=1837317243]
+visible = false
+modulate = Color(0, 0.6948338, 0.7816376, 0.34117648)
+texture = ExtResource("4_lat6o")
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="Placement Preview" unique_id=725554439]
+position = Vector2(0, -9)
+shape = SubResource("CapsuleShape2D_q3t11")
+target_position = Vector2(0, 19.215)
+
+[node name="Build Range" type="Area2D" parent="." unique_id=477623446]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Build Range" unique_id=1523569700]
+shape = SubResource("RectangleShape2D_q3t11")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=34900800]
+
+[node name="Ammo" type="Label" parent="HUD" unique_id=1934740490]
+offset_right = 40.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Ammo: "
+
+[node name="Snowball" type="TextureButton" parent="HUD" unique_id=1221793021]
+visible = false
+offset_left = 231.0
+offset_top = 171.0
+offset_right = 271.0
+offset_bottom = 211.0
+texture_normal = ExtResource("5_pi8k8")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Wall" type="TextureButton" parent="HUD" unique_id=1424092943]
+visible = false
+offset_left = 402.0
+offset_top = 172.0
+offset_right = 442.0
+offset_bottom = 212.0
+texture_normal = ExtResource("4_lat6o")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="mouse_entered" from="Build Range" to="." method="_on_build_range_mouse_entered"]
+[connection signal="mouse_exited" from="Build Range" to="." method="_on_build_range_mouse_exited"]
+[connection signal="pressed" from="HUD/Snowball" to="." method="_on_snowball_pressed"]

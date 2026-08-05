@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dnq5cvug25fj8"]
+
+[ext_resource type="Script" uid="uid://dhlt6g1e30d1w" path="res://multiplayer/snow_wall.gd" id="1_0ol2q"]
+[ext_resource type="Texture2D" uid="uid://b4bp8p0x783ri" path="res://snow wall.png" id="1_wgago"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vi102"]
+radius = 6.0
+height = 50.0
+
+[node name="Snow Wall" type="StaticBody2D" unique_id=1767110875]
+script = ExtResource("1_0ol2q")
+
+[node name="SnowWall" type="Sprite2D" parent="." unique_id=214128976]
+texture = ExtResource("1_wgago")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1266715172]
+shape = SubResource("CapsuleShape2D_vi102")

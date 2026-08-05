@@ -3,7 +3,6 @@ class_name  LevelData
 
 var difficulty : int = 1
 
-
 var hazards : Dictionary = {
 	"Floorboard": {
 		"noise_level": 3,
