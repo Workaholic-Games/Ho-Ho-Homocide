@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://7tbtc5qng4re" path="res://main/player.tscn" id="2_rchsp"]
 [ext_resource type="Texture2D" uid="uid://d1a1xyugp0xn4" path="res://snowflake.png" id="3_rchsp"]
 [ext_resource type="PackedScene" uid="uid://dnq5cvug25fj8" path="res://multiplayer/snow_wall.tscn" id="5_q1ws1"]
+[ext_resource type="Texture2D" uid="uid://csugmjj4gvs53" path="res://elf_front.png" id="6_aaotp"]
+[ext_resource type="Texture2D" uid="uid://de3itebkt66oy" path="res://elf_back.png" id="7_go6ao"]
+[ext_resource type="Texture2D" uid="uid://22aiwn6saojc" path="res://elf_side.png" id="8_qxcws"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ub4gv"]
 texture = ExtResource("1_d377o")
@@ -78,3 +81,15 @@ position = Vector2(1633, 1074)
 
 [node name="Marker2D10" type="Marker2D" parent="." unique_id=243482347]
 position = Vector2(391, 355)
+
+[node name="ElfFront" type="Sprite2D" parent="." unique_id=410917372]
+position = Vector2(217, 88)
+texture = ExtResource("6_aaotp")
+
+[node name="ElfBack" type="Sprite2D" parent="." unique_id=52515126]
+position = Vector2(234, 88)
+texture = ExtResource("7_go6ao")
+
+[node name="ElfSide" type="Sprite2D" parent="." unique_id=281252786]
+position = Vector2(202, 88)
+texture = ExtResource("8_qxcws")

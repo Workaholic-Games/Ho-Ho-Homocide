@@ -11,6 +11,8 @@ var wall_count : int = 3
 var can_place : bool = true
 var in_range : bool
 
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
 func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
 	username = MultiplayerManagement.username
@@ -26,7 +28,15 @@ func _physics_process(_delta):
 		if !is_multiplayer_authority():
 			return
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	velocity = direction * SaveManager.player_data.speed
+	
+	if direction != Vector2.ZERO:
+		velocity = direction * SaveManager.player_data.speed
+		update_animation(direction)
+		animated_sprite.play()
+	else:
+		velocity = Vector2.ZERO
+		animated_sprite.stop()
+	
 	move_and_slide()
 	$"Placement Preview".global_position = get_global_mouse_position()
 	if $"Placement Preview/ShapeCast2D".is_colliding() or !in_range:
@@ -99,3 +109,19 @@ func _on_snowball_pressed() -> void:
 	$"Snowball Launcher".update_ammo()
 	if $"Snowball Launcher".ammo < $"Snowball Launcher".max_ammo:
 		$"Snowball Launcher".ammo += 3
+
+func update_animation(dir: Vector2):
+	if abs(dir.x) > abs(dir.y):
+		if dir.x > 0:
+			animated_sprite.animation = "walk_side"
+			animated_sprite.flip_h = false
+		else:
+			animated_sprite.animation = "walk_side"
+			animated_sprite.flip_h = true
+	else:
+		if dir.y > 0:
+			animated_sprite.animation = "walk_down"
+			animated_sprite.flip_h = false
+		else:
+			animated_sprite.animation = "walk_up"
+			animated_sprite.flip_h = false
