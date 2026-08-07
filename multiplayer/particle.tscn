@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://v4y1cx05104t"]
 
-[ext_resource type="Texture2D" uid="uid://d1a1xyugp0xn4" path="res://snowflake.png" id="1_gvw5v"]
+[ext_resource type="Texture2D" uid="uid://d1a1xyugp0xn4" path="res://assets/snowflake.png" id="1_gvw5v"]
 
 [node name="Node" type="Node2D" unique_id=1075476483]
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cqow47bch5ocs"]
 
 [ext_resource type="Script" uid="uid://80smbrgl15kt" path="res://main/title.gd" id="1_61fdc"]
-[ext_resource type="Texture2D" uid="uid://dadn3yoahyt77" path="res://background.png" id="2_dxqjs"]
+[ext_resource type="Texture2D" uid="uid://dadn3yoahyt77" path="res://assets/background.png" id="2_dxqjs"]
 [ext_resource type="Texture2D" uid="uid://d0rflmsgl38o4" path="res://foreground.png" id="3_x183l"]
 
 [node name="title" type="Node2D" unique_id=1544259826]
@@ -39,7 +39,7 @@ offset_left = 80.0
 offset_top = 16.0
 offset_right = 553.0
 offset_bottom = 45.0
-text = "Ho Ho Homocide"
+text = "Ho Ho Homicide"
 horizontal_alignment = 1
 
 [node name="Buttons" type="Control" parent="Camera2D" unique_id=151083068]

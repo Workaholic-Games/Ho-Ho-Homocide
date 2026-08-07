@@ -20,10 +20,10 @@ func _process(_delta: float) -> void:
 	else:
 		scale.y = 1
 	
-	if Input.is_action_just_pressed("shoot") and ammo > 0 and get_parent().mode == 1:
+	if Input.is_action_just_pressed("shoot") and ammo > 0 and MultiplayerManagement.mode == 1:
 		if is_cooldown:
 			return
-		if get_parent().mode != 1:
+		if MultiplayerManagement.mode != 1:
 			return
 		$cooldown.start()
 		var instance = snowball.instantiate()

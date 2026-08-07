@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://vppqefa27s6s"]
 
 [ext_resource type="Script" uid="uid://bltvirp6mbfwv" path="res://multiplayer/multiplayer_lobby.gd" id="1_uf1lj"]
-[ext_resource type="Texture2D" uid="uid://bm22jkk57rbgk" path="res://floor.png" id="1_yfjim"]
+[ext_resource type="Texture2D" uid="uid://bm22jkk57rbgk" path="res://assets/floor.png" id="1_yfjim"]
 [ext_resource type="Texture2D" uid="uid://bwd4i4cno0kl1" path="res://computer/close_button.png" id="3_6t1ej"]
 [ext_resource type="PackedScene" uid="uid://bbt482dn8chio" path="res://multiplayer/start_button.tscn" id="4_uf1lj"]
 
@@ -22,8 +22,9 @@ tile_map_data = PackedByteArray("AAAKAAAAAAAAAAAAAAAKAAEAAAAAAAAAAAAKAAIAAAAAAAA
 tile_set = SubResource("TileSet_3poc4")
 rendering_quadrant_size = 32
 
-[node name="Computer" parent="." unique_id=972793786 instance=ExtResource("4_uf1lj")]
+[node name="Computer" parent="." unique_id=972793786 node_paths=PackedStringArray("labels") instance=ExtResource("4_uf1lj")]
 position = Vector2(296, 136)
+labels = [NodePath("../CanvasLayer/Label"), NodePath("../CanvasLayer/Label2")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1417837184]
 

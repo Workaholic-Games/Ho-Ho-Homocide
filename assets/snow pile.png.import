@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4bp8p0x783ri"
-path="res://.godot/imported/snow wall.png-af16018ace6d1836ae7000a63c41104a.ctex"
+uid="uid://q2vnfbw7q2vr"
+path="res://.godot/imported/snow pile.png-582eab956efcacadd7adda2d8be2c069.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://snow wall.png"
-dest_files=["res://.godot/imported/snow wall.png-af16018ace6d1836ae7000a63c41104a.ctex"]
+source_file="res://assets/snow pile.png"
+dest_files=["res://.godot/imported/snow pile.png-582eab956efcacadd7adda2d8be2c069.ctex"]
 
 [params]
 

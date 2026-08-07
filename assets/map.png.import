@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4gb8c2dpfrng"
-path="res://.godot/imported/snowball_launcher.png-a3d8ee5566cada2725a23075e69914c2.ctex"
+uid="uid://dl5lqoctoxe23"
+path="res://.godot/imported/map.png-dfba05084e3346587240e6093ee94fb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://snowball_launcher.png"
-dest_files=["res://.godot/imported/snowball_launcher.png-a3d8ee5566cada2725a23075e69914c2.ctex"]
+source_file="res://assets/map.png"
+dest_files=["res://.godot/imported/map.png-dfba05084e3346587240e6093ee94fb2.ctex"]
 
 [params]
 

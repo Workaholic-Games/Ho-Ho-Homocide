@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q2vnfbw7q2vr"
-path="res://.godot/imported/snow pile.png-476754ce7ad78484d97a33d517fbd486.ctex"
+uid="uid://cda6evfy27me5"
+path="res://.godot/imported/house.png-873b23dab4701b230309b6eed0085474.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://snow pile.png"
-dest_files=["res://.godot/imported/snow pile.png-476754ce7ad78484d97a33d517fbd486.ctex"]
+source_file="res://assets/house.png"
+dest_files=["res://.godot/imported/house.png-873b23dab4701b230309b6eed0085474.ctex"]
 
 [params]
 

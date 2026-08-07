@@ -5,7 +5,6 @@ const snow_wall = preload("res://multiplayer/snow_wall.tscn")
 
 @export var username : String = ""
 var team: String = ""
-var mode : int = 1
 
 var wall_count : int = 3
 var can_place : bool = true
@@ -18,7 +17,7 @@ func _enter_tree() -> void:
 	username = MultiplayerManagement.username
 
 func _ready() -> void:
-	
+	print(wall_count, can_place)
 	$Camera2D.make_current()
 	update_username()
 	position = Vector2(336.0, 192.0)
@@ -57,25 +56,26 @@ func update_team_visuals():
 		$Label.add_theme_color_override("font_color", Color(0.812, 0.0, 0.0, 1.0))
 
 func _input(_event: InputEvent) -> void:
-	if mode == 0:
+	if MultiplayerManagement.mode == 0:
 		return
 
 	if Input.is_action_just_pressed("shoot mode"):
-		mode = 1
+		MultiplayerManagement.mode = 1
 		$"Placement Preview".hide()
 		$"Snowball Launcher".show()
 
 	elif Input.is_action_just_pressed("build mode") and can_place:
-		mode = 2
+		print("2")
+		MultiplayerManagement.mode = 2
 		$"Placement Preview".show()
 		$"Snowball Launcher".hide()
 
 	elif Input.is_action_just_pressed("dig mode"):
-		mode = 3
+		MultiplayerManagement.mode = 3
 		$"Snowball Launcher".hide()
 		$"Placement Preview".hide()
 
-	if Input.is_action_just_pressed("shoot") and wall_count > 0 and can_place and in_range and mode == 2:
+	if Input.is_action_just_pressed("shoot") and wall_count > 0 and can_place and in_range and MultiplayerManagement.mode == 2:
 		var instance = snow_wall.instantiate()
 
 		get_tree().root.add_child(instance)
@@ -85,12 +85,12 @@ func _input(_event: InputEvent) -> void:
 		wall_count -= 1
 		if wall_count == 0:
 			can_place = false
-			mode = 1
+			MultiplayerManagement.mode = 1
 			$"Placement Preview".hide()
 
 		print(wall_count)
 
-	elif Input.is_action_just_pressed("shoot") and mode == 3:
+	elif Input.is_action_just_pressed("shoot") and MultiplayerManagement.mode == 3:
 		pass
 
 	if Input.is_action_just_pressed("rotate_left"):

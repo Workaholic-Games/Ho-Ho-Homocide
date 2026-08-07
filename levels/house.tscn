@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://doqurppbwj0ao"]
 
 [ext_resource type="Script" uid="uid://bs1dv82w6ftfc" path="res://levels/house.gd" id="1_0bg5l"]
-[ext_resource type="PackedScene" uid="uid://7tbtc5qng4re" path="res://main/player.tscn" id="1_lbews"]
+[ext_resource type="PackedScene" uid="uid://7tbtc5qng4re" path="res://main/player/player.tscn" id="1_lbews"]
 [ext_resource type="Script" uid="uid://dcjcp0rsxxx8j" path="res://follow_cam.gd" id="2_4khaa"]
-[ext_resource type="Texture2D" uid="uid://bm22jkk57rbgk" path="res://floor.png" id="4_0bg5l"]
+[ext_resource type="Texture2D" uid="uid://bm22jkk57rbgk" path="res://assets/floor.png" id="4_0bg5l"]
 [ext_resource type="Shader" uid="uid://4xo1alu3544a" path="res://levels/timer.gdshader" id="5_srnql"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_srnql"]

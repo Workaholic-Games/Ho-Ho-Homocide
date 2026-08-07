@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dv5l4sik0krxu"]
 
-[ext_resource type="Texture2D" uid="uid://cda6evfy27me5" path="res://house.png" id="1_7otum"]
+[ext_resource type="Texture2D" uid="uid://cda6evfy27me5" path="res://assets/house.png" id="1_7otum"]
 [ext_resource type="Script" uid="uid://cs2oc8uttb6wb" path="res://house_button.gd" id="2_0nnt4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0nnt4"]

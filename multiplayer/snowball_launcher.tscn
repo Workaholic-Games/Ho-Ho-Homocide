@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ccytjnsawr0u3"]
 
-[ext_resource type="Texture2D" uid="uid://4gb8c2dpfrng" path="res://snowball_launcher.png" id="1_3q13n"]
+[ext_resource type="Texture2D" uid="uid://4gb8c2dpfrng" path="res://assets/snowball_launcher.png" id="1_3q13n"]
 [ext_resource type="Script" uid="uid://cq7mailljy48" path="res://multiplayer/snowball_launcher.gd" id="1_7be5l"]
 
 [node name="Snowball Launcher" type="Node2D" unique_id=1161885801]

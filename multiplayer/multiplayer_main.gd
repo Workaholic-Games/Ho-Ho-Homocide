@@ -42,7 +42,7 @@ func join_lobby(lobby_id: int):
 	is_joining = true
 	Steam.joinLobby(lobby_id)
 
-func on_lobby_joined(lobby_id: int, permissions: int, locked: bool, response: int):
+func on_lobby_joined(lobby_id: int, _permissions: int, _locked: bool, _response: int):
 	if !is_joining:
 		return
 	

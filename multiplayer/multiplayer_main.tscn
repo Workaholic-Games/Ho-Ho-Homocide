@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://eq1rd27yq37i"]
 
 [ext_resource type="Script" uid="uid://pxshmgheltaw" path="res://multiplayer/multiplayer_main.gd" id="1_bb24p"]
-[ext_resource type="PackedScene" uid="uid://7tbtc5qng4re" path="res://main/player.tscn" id="2_bb24p"]
+[ext_resource type="PackedScene" uid="uid://7tbtc5qng4re" path="res://main/player/player.tscn" id="2_bb24p"]
 
 [node name="MultiplayerMain" type="Node2D" unique_id=578742595]
 script = ExtResource("1_bb24p")

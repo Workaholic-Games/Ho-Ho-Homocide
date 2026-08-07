@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de3itebkt66oy"
-path="res://.godot/imported/elf_back.png-fc42abcc66fde9e7a04719520d634754.ctex"
+uid="uid://dudjjujs7c248"
+path="res://.godot/imported/HHH Back.png-3c635ebd02a4f24197e0e1d79b27c971.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://elf_back.png"
-dest_files=["res://.godot/imported/elf_back.png-fc42abcc66fde9e7a04719520d634754.ctex"]
+source_file="res://HHH Back.png"
+dest_files=["res://.godot/imported/HHH Back.png-3c635ebd02a4f24197e0e1d79b27c971.ctex"]
 
 [params]
 

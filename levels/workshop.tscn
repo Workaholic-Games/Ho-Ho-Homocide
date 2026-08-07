@@ -1,12 +1,12 @@
 [gd_scene format=4 uid="uid://chon40hguej4m"]
 
-[ext_resource type="Texture2D" uid="uid://bchy47fkrkha6" path="res://tilemap_atlas.png" id="1_iqvtc"]
-[ext_resource type="PackedScene" uid="uid://7tbtc5qng4re" path="res://main/player.tscn" id="2_ygum1"]
+[ext_resource type="Texture2D" uid="uid://bchy47fkrkha6" path="res://assets/tilemap_atlas.png" id="1_iqvtc"]
+[ext_resource type="PackedScene" uid="uid://7tbtc5qng4re" path="res://main/player/player.tscn" id="2_ygum1"]
 [ext_resource type="PackedScene" uid="uid://drm1604p7xpwt" path="res://computer/computer.tscn" id="4_4261n"]
-[ext_resource type="Texture2D" uid="uid://dadn3yoahyt77" path="res://background.png" id="5_4ou1u"]
+[ext_resource type="Texture2D" uid="uid://dadn3yoahyt77" path="res://assets/background.png" id="5_4ou1u"]
 [ext_resource type="PackedScene" uid="uid://bc6a0ebk45cpa" path="res://map.tscn" id="5_4261n"]
 [ext_resource type="Texture2D" uid="uid://bwd4i4cno0kl1" path="res://computer/close_button.png" id="6_vyl78"]
-[ext_resource type="Texture2D" uid="uid://dl5lqoctoxe23" path="res://map.png" id="7_ygum1"]
+[ext_resource type="Texture2D" uid="uid://dl5lqoctoxe23" path="res://assets/map.png" id="7_ygum1"]
 [ext_resource type="PackedScene" uid="uid://dv5l4sik0krxu" path="res://house_button.tscn" id="11_vyl78"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mwdg"]

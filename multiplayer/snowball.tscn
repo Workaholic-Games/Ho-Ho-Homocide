@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bh3ddnw4gsfig"]
 
-[ext_resource type="Texture2D" uid="uid://os6a602uifpp" path="res://snowball.png" id="1_s47y6"]
+[ext_resource type="Texture2D" uid="uid://os6a602uifpp" path="res://assets/snowball.png" id="1_s47y6"]
 [ext_resource type="Script" uid="uid://csss0js6bgb0x" path="res://multiplayer/snowball.gd" id="1_xexhh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q3t11"]

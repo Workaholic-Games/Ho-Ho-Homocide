@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bwf8hv2ipdmke"]
 
 [ext_resource type="Script" uid="uid://buy5brft02lrn" path="res://multiplayer/snow_pile.gd" id="1_omjyo"]
-[ext_resource type="Texture2D" uid="uid://q2vnfbw7q2vr" path="res://snow pile.png" id="1_wdqi3"]
+[ext_resource type="Texture2D" uid="uid://q2vnfbw7q2vr" path="res://assets/snow pile.png" id="1_wdqi3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3t11"]
 radius = 15.0

@@ -3,6 +3,8 @@ extends Node
 var host_pressed : bool = false
 var join_pressed : bool = false
 var is_playing : bool = false
+var mode : int = 0
+var my_team : String
 
 var join_code : int = 0
 
@@ -10,7 +12,8 @@ var username : String = ""
 
 var current_map: Node = null
 var maps : Array = [
-	"res://Cookie Crumble.tscn",
+	#"res://Cookie Crumble.tscn",
+	"res://multiplayer/maps/blizzard battle.tscn",
 ]
 
 
