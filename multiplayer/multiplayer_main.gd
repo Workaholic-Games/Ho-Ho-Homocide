@@ -21,7 +21,6 @@ func _ready() -> void:
 func host_lobby():
 	Steam.createLobby(Steam.LOBBY_TYPE_PUBLIC, 16)
 	is_host = true
-
 	
 func on_lobby_created(result: int, lobby_id: int):
 	if result == Steam.Result.RESULT_OK:
